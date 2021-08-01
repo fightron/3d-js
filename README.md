@@ -6,34 +6,42 @@ Proposal for skeleton handling in the Fightron Engine.
 
 ```javascript
 
-// Creates a new Skeleton instance with a root joint at x=0, y=0, z=0
+// Create a new Skeleton instance with a root joint at x=0, y=0, z=0
 var skeleton = new Skeleton()
 
 // Add a new joint above the root
-var spineJoint = skeleton.joints.create(0, 1, 0)
-spineJoint.parent = skeleton.joints.root
-
-// Alternative way:
-var spineJoint = skeleton.joints.root.append(0, 1, 0)
-
-// Rotate the spine (in radius) using Euler rotation
-spineJoint.rotate(0, 0.3, 0)
+var joint = skeleton.joints.create(0, 1, 0)
+joint.parent = skeleton.joints.root
 
 // Alternatively:
-spineJoint.rotateY(0.3)
+var joint = skeleton.joints.root.append(0, 1, 0)
 
-// Rotate the spine using Quaternions
-spineJoint.quaternion(0, 0.2, 0.3, 1)
+// Set the rotation of a joint
+joint.rotation.set(0, 0.3, 0)
 
 // Alternatively:
-spineJoint.quaternionY(0.2)
-spineJoint.quaternionZ(0.3)
-spineJoint.quaternionW(1)
+joint.rotation.y = 0.3
+
+// Set a joint's Euler rotation order
+joint.rotation.order = "YXZ"
+
+// Set the quaternion rotation of a joint
+joint.quaternion.set(0, 0.2, 0.3, 1)
+
+// Alternatively:
+joint.quaternion.y = 0.2
+joint.quaternion.z = 0.3
+joint.quaternion.w = 1
 
 // Reposition entire skeleton
-// (Same approach could be used for repositioning a joint)
-skeleton.joins.root.position(3, 0, 0)
+skeleton.joints.root.position.set(3, 0, 0)
 
 // Alternatively:
-skeleton.joins.root.positionX(3)
+skeleton.joints.root.position.x = 3
+
+// Name a joint
+joint.name = "spine1"
+
+// Fetch a joint by name
+assert(joint == skeleton.joints.get("spine1"))
 ```
