@@ -2,8 +2,8 @@
 
 'use strict'
 
-// https://github.com/mrdoob/three.js/blob/master/src/core/Object3D.js
-import { Object3D } from 'three/src/core/Object3D.js'
+// https://github.com/mrdoob/three.js/blob/master/src/objects/Bone.js
+import { Bone } from 'three/src/objects/Bone.js'
 
 const FULL_ROTATION_RADIANS = Math.PI * 2
 
@@ -11,7 +11,7 @@ const FULL_ROTATION_RADIANS = Math.PI * 2
  * A Joint is a 3D point in space with a name that belongs to a
  * skeleton instance and have degrees of freedom.
  */
-export class Joint extends Object3D {
+export class Joint extends Bone {
   /**
    * @param {string} name - Joint name.
    * @param {Skeleton} skeleton - Skeleton instance this joint belongs to.

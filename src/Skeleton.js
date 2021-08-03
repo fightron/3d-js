@@ -2,12 +2,17 @@
 
 'use strict'
 
+import { Skeleton as Skeleton3 } from 'three/src/objects/Skeleton.js'
 import { Joints } from './Joints.js'
 
 export class Skeleton {
   constructor () {
+    /** @type {Joints} */
     this.joints = new Joints(this)
+
+    /** @type {Joint} */
     this.root = this.joints.root
+
     this.build()
   }
 
@@ -17,3 +22,7 @@ export class Skeleton {
    */
   build () {}
 }
+
+/**
+ * @typedef { import("./Joint").Joint } Joint
+ */
