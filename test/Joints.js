@@ -2,7 +2,7 @@
 
 'use strict'
 
-import { expect, sinon } from '@dimensionalpocket/development'
+import { expect } from '@dimensionalpocket/development'
 import { Joint } from '../src/Joint.js'
 
 import { Skeleton } from '../src/Skeleton.js'

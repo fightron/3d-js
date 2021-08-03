@@ -19,9 +19,15 @@ export class Joint extends Object3D {
   constructor (name, skeleton) {
     super()
     this.name = name
+
+    /**
+     * @type {Skeleton}
+     */
     this.skeleton = skeleton
 
-    // Axis definitions, including DoF.
+    /**
+     * Axis definitions, including DoF.
+     */
     this.axes = {
       x: { min: -FULL_ROTATION_RADIANS, max: FULL_ROTATION_RADIANS, label: 'front/back' },
       y: { min: -FULL_ROTATION_RADIANS, max: FULL_ROTATION_RADIANS, label: 'twist' },
