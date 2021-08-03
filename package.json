@@ -21,7 +21,6 @@
   },
   "homepage": "https://github.com/fightron/skeleton#readme",
   "dependencies": {
-    "gl-matrix": "3.3.0",
     "three": "github:dimensionalpocket/three.js#module"
   },
   "devDependencies": {
