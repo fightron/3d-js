@@ -1,0 +1,52 @@
+{
+  "name": "@fightron/skeleton",
+  "version": "0.0.0",
+  "description": "Fightron Engine's Skeleton class and utilities",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "npm run lint && NODE_ENV=test c8 mocha",
+    "test:ci": "NODE_ENV=test mocha",
+    "lint": "standardx --fix",
+    "release": "release-it --config ./node_modules/@dimensionalpocket/development/release-it/config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fightron/skeleton.git"
+  },
+  "author": "fightron.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fightron/skeleton/issues"
+  },
+  "homepage": "https://github.com/fightron/skeleton#readme",
+  "dependencies": {
+    "gl-matrix": "3.3.0",
+    "three": "github:dimensionalpocket/three.js#module"
+  },
+  "devDependencies": {
+    "@dimensionalpocket/development": "github:dimensionalpocket/development-js#0.1.0",
+    "@types/three": "0.130.1"
+  },
+  "babel": {
+    "extends": "./node_modules/@dimensionalpocket/development/babel"
+  },
+  "eslintConfig": {
+    "extends": "./node_modules/@dimensionalpocket/development/eslint"
+  },
+  "mocha": {
+    "recursive": true,
+    "reporter": "dot",
+    "colors": true
+  },
+  "c8": {
+    "all": true,
+    "include": [
+      "index.js",
+      "src"
+    ]
+  },
+  "engines": {
+    "node": ">= 14.17.1"
+  }
+}
