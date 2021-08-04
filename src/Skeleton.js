@@ -2,7 +2,6 @@
 
 'use strict'
 
-import { Skeleton as Skeleton3 } from 'three/src/objects/Skeleton.js'
 import { Joints } from './Joints.js'
 
 export class Skeleton {
@@ -12,6 +11,12 @@ export class Skeleton {
 
     /** @type {Joint} */
     this.root = this.joints.root
+
+    /**
+     * Usually a THREE Skeleton, but can be something else
+     * depending on the rendering engine.
+     */
+    this.renderable = null
 
     this.build()
   }

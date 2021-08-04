@@ -13,6 +13,10 @@ export class Joints extends Map {
    * @param {Skeleton} skeleton - Skeleton instance this joint collection belongs to.
    */
   constructor (skeleton) {
+    if (!skeleton) {
+      throw new Error('Joints: skeleton is required')
+    }
+
     super()
     this.skeleton = skeleton
     this.root = this.create('root')
@@ -25,6 +29,10 @@ export class Joints extends Map {
    * @param {Joint} [parent] - parent joint
    */
   create (name, parent = null) {
+    if (!name) {
+      throw new Error('Joints#create: name is required')
+    }
+
     var existing = this.get(name)
     if (existing) {
       throw new Error(`Joints#create(${name}): a joint with that name already exists`)

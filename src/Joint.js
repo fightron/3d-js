@@ -17,6 +17,14 @@ export class Joint extends Bone {
    * @param {Skeleton} skeleton - Skeleton instance this joint belongs to.
    */
   constructor (name, skeleton) {
+    if (!name) {
+      throw new Error('Joint: name is required')
+    }
+
+    if (!skeleton) {
+      throw new Error('Joint: skeleton is required')
+    }
+
     super()
     this.name = name
 
@@ -33,6 +41,10 @@ export class Joint extends Bone {
       y: { min: -FULL_ROTATION_RADIANS, max: FULL_ROTATION_RADIANS, label: 'twist' },
       z: { min: -FULL_ROTATION_RADIANS, max: FULL_ROTATION_RADIANS, label: 'side' }
     }
+
+    // Default rotation order for joints.
+    // We want to "twist" first, before moving "front/back" or "side".
+    this.rotation.order = 'YXZ'
   }
 }
 

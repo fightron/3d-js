@@ -4,6 +4,7 @@
 
 import { expect } from '@dimensionalpocket/development'
 import { Joint } from '../src/Joint.js'
+import { Joints } from '../src/Joints.js'
 
 import { Skeleton } from '../src/Skeleton.js'
 
@@ -21,6 +22,10 @@ describe('Joints', function () {
     it('creates the root joint', function () {
       expect(this.joints.root).to.be.an.instanceof(Joint)
       expect(this.joints.root.name).to.eq('root')
+    })
+
+    it('throws an error without a skeleton', function () {
+      expect(_ => new Joints(null)).to.throw(/skeleton is required/)
     })
   })
 
@@ -43,6 +48,10 @@ describe('Joints', function () {
 
     it('sets the root as parent', function () {
       expect(this.spine.parent).to.eq(this.joints.root)
+    })
+
+    it('throws an error without a skeleton', function () {
+      expect(_ => this.joints.create(null)).to.throw(/name is required/)
     })
 
     context('when a parent is given', function () {
