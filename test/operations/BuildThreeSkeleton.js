@@ -6,13 +6,17 @@ import { expect } from '@dimensionalpocket/development'
 import { BuildThreeSkeleton } from '../../src/operations/BuildThreeSkeleton.js'
 import { Skeleton } from '../../src/Skeleton.js'
 import { Skeleton as Skeleton3 } from 'three/src/objects/Skeleton.js'
+import { JointDefinition } from '../../src/JointDefinition.js'
 
 describe('operations/BuildThreeSkeleton', function () {
   before(function () {
     this.skeleton = new Skeleton()
-    var spine1 = this.skeleton.joints.create('spine1')
+    var rootDef = new JointDefinition('root', null)
+    var spine1Def = new JointDefinition('spine1', 'root')
+    var spine2Def = new JointDefinition('spine2', 'spine1')
+    this.skeleton.build([rootDef, spine1Def, spine2Def])
+    var spine1 = this.skeleton.joints.get('spine1')
     spine1.position.y = 5
-    this.skeleton.joints.create('spine2', spine1)
   })
 
   describe('#run', function () {

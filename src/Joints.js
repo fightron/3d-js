@@ -5,8 +5,7 @@
 import { Joint } from './Joint.js'
 
 /**
- * A collection of Joints that belong to a skeleton.
- * It initializes with a root joint.
+ * A collection that associates joints to a skeleton.
  */
 export class Joints extends Map {
   /**
@@ -18,41 +17,56 @@ export class Joints extends Map {
     }
 
     super()
+
+    /** @type {Skeleton} */
     this.skeleton = skeleton
-    this.root = this.create('root')
   }
 
   /**
-   * Creates a Joint instance, assigns it to the skeleton
-   * from this collection, then adds the joint to this collection.
-   * @param {string} name - name of the joint to create
-   * @param {Joint} [parent] - parent joint
+   * Creates a Joint instance from a definition and adds the joint to this collection.
+   * @param {JointDefinition} definition - JointDefinition to create the joint off of
+   * @return {Joint} - the created Joint
    */
-  create (name, parent = null) {
-    if (!name) {
-      throw new Error('Joints#create: name is required')
+  create (definition) {
+    if (!definition) {
+      throw new Error('Joints#create: definition is required')
     }
+
+    var name = definition.name
 
     var existing = this.get(name)
     if (existing) {
       throw new Error(`Joints#create(${name}): a joint with that name already exists`)
     }
 
-    if (this.size === 0 && name !== 'root') {
-      throw new Error(`Joints#create(${name}): first joint must be named 'root'`)
+    var parent = null
+    var parentName = definition.parentName
+
+    if (parentName) {
+      parent = this.get(parentName)
+      if (!parent) {
+        throw new Error(`Joints#create(${name}): parent named "${parentName}" not found in collection`)
+      }
     }
 
     if (this.size > 0 && !parent) {
-      parent = this.root
+      throw new Error(`Joints#create(${name}): parent required when collection is not empty`)
     }
 
-    var joint = new Joint(name, this.skeleton)
+    var joint = new Joint(definition)
+    var jointPosition = joint.position
+
+    jointPosition.x = definition.positionX
+    jointPosition.y = definition.positionY
+    jointPosition.z = definition.positionZ
+
+    joint.rotation.order = definition.rotationOrder
 
     if (parent) {
       joint.parent = parent
     }
 
-    this.set(joint.name, joint)
+    this.set(definition.name, joint)
 
     return joint
   }
@@ -60,4 +74,5 @@ export class Joints extends Map {
 
 /**
  * @typedef { import("./Skeleton").Skeleton } Skeleton
+ * @typedef { import("./JointDefinition").JointDefinition } JointDefinition
  */

@@ -5,49 +5,32 @@
 // https://github.com/mrdoob/three.js/blob/master/src/objects/Bone.js
 import { Bone } from 'three/src/objects/Bone.js'
 
-const FULL_ROTATION_RADIANS = Math.PI * 2
-
 /**
  * A Joint is a 3D point in space with a name that belongs to a
  * skeleton instance and have degrees of freedom.
  */
 export class Joint extends Bone {
   /**
-   * @param {string} name - Joint name.
-   * @param {Skeleton} skeleton - Skeleton instance this joint belongs to.
+   * @param {JointDefinition} definition - JointDefinition instance to create the joint off of.
    */
-  constructor (name, skeleton) {
-    if (!name) {
-      throw new Error('Joint: name is required')
-    }
-
-    if (!skeleton) {
-      throw new Error('Joint: skeleton is required')
+  constructor (definition) {
+    if (!definition) {
+      throw new Error('Joint: definition is required')
     }
 
     super()
-    this.name = name
+
+    /** @type {JointDefinition} */
+    this.definition = definition
 
     /**
-     * @type {Skeleton}
+     * Usually a THREE Mesh, but can be something else
+     * depending on the rendering engine.
      */
-    this.skeleton = skeleton
-
-    /**
-     * Axis definitions, including DoF.
-     */
-    this.axes = {
-      x: { min: -FULL_ROTATION_RADIANS, max: FULL_ROTATION_RADIANS, label: 'front/back' },
-      y: { min: -FULL_ROTATION_RADIANS, max: FULL_ROTATION_RADIANS, label: 'twist' },
-      z: { min: -FULL_ROTATION_RADIANS, max: FULL_ROTATION_RADIANS, label: 'side' }
-    }
-
-    // Default rotation order for joints.
-    // We want to "twist" first, before moving "front/back" or "side".
-    this.rotation.order = 'YXZ'
+    this.renderable = null
   }
 }
 
 /**
- * @typedef { import("./Skeleton").Skeleton } Skeleton
+ * @typedef { import("./JointDefinition").JointDefinition } JointDefinition
  */

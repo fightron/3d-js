@@ -2,22 +2,23 @@
 
 'use strict'
 
-import { expect, sinon } from '@dimensionalpocket/development'
+import { expect } from '@dimensionalpocket/development'
 import { Joint } from '../src/Joint.js'
-import { Skeleton } from '../src/Skeleton.js'
+import { JointDefinition } from '../src/JointDefinition.js'
 
 describe('Joint', function () {
   before(function () {
-    this.skeleton = new Skeleton()
+    this.definition = new JointDefinition('test', null)
   })
 
   describe('constructor', function () {
-    it('throws an error without a name', function () {
-      expect(_ => new Joint(null, this.skeleton)).to.throw(/name is required/)
+    it('throws an error without a definition', function () {
+      expect(_ => new Joint(null)).to.throw(/definition is required/)
     })
 
-    it('throws an error without a skeleton', function () {
-      expect(_ => new Joint('test', null)).to.throw(/skeleton is required/)
+    it('sets the definition', function () {
+      var joint = new Joint(this.definition)
+      expect(joint.definition).to.eq(this.definition)
     })
   })
 })

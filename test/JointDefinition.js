@@ -4,6 +4,7 @@
 
 import { expect } from '@dimensionalpocket/development'
 import { JointDefinition } from '../src/JointDefinition.js'
+import { Volume } from '../src/Volume.js'
 
 describe('JointDefinition', function () {
   it('sets name', function () {
@@ -19,6 +20,12 @@ describe('JointDefinition', function () {
   it('sets rotationOrder', function () {
     var def = new JointDefinition('test', null, undefined, undefined, 'XYZ')
     expect(def.rotationOrder).to.eq('XYZ')
+  })
+
+  it('sets a volume if given', function () {
+    var volume = new Volume()
+    var def = new JointDefinition('test', null, undefined, undefined, undefined, volume)
+    expect(def.volume).to.eq(volume)
   })
 
   context('position', function () {

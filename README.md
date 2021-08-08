@@ -1,25 +1,27 @@
 # @fightron/skeleton
 
-Skeleton structure for creating rigs in the Fightron Engine. It uses ThreeJS' `Object3D` under the hood.
+Skeleton structure for creating rigs in the Fightron Engine. It uses `THREE.Bone` under the hood.
 
 ## Usage
 
 ```javascript
-
-// Create a new Skeleton instance with a root joint at x=0, y=0, z=0
+// Create a new Skeleton instance.
 var skeleton = new Skeleton()
 
-// Add a new joint.
-// Joints must have a name.
-var spine = skeleton.joints.create("spine")
+// Create JointDefinition instances that can be
+// reused to create multiple joints of the same type.
+// Custom skeletons create their own, long-lived definitions.
+var rootDef = new JointDefinition('root', null)
+var spineDef = new JointDefinition('spine', 'root')
 
-// Joints default to having root as parent.
-// You can change the parent joint.
-spine.parent = skeleton.root
+// Build the skeleton with the above definitions.
+// This will create joint instances in skeleton.joints.
+skeleton.build([rootDef, spineDef])
 
-// Fetch a joint by name
-assert(spine == skeleton.joints.get("spine"))
+// Fetch a joint by name to manipulate it.
+var spine = skeleton.joints.get('spine')
 
-// Joints are Object3D instances, so they have access to
+// Joints are THREE.Bone instances, so they have access to
 // scale, position, rotation, and quaternion.
+spine.position.y = 5
 ```

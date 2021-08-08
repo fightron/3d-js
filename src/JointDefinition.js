@@ -6,11 +6,12 @@ export class JointDefinition {
   /**
    * @param {string} name
    * @param {string} parentName
-   * @param {Vector} position
-   * @param {RotationLimits} rotationLimits
-   * @param {string} rotationOrder
+   * @param {Vector3} [position]
+   * @param {RotationLimits} [rotationLimits]
+   * @param {string} [rotationOrder]
+   * @param {Volume} [volume]
    */
-  constructor (name, parentName, position = {}, rotationLimits = {}, rotationOrder = null) {
+  constructor (name, parentName, position = {}, rotationLimits = {}, rotationOrder = null, volume = null) {
     /** @type {string} */
     this.name = name
 
@@ -44,8 +45,26 @@ export class JointDefinition {
     /** @type {number} */
     this.maxRotationZ = ifNull(rotationLimits.zMax, Infinity)
 
-    /** @type {string} */
+    // Axis names are shown in editors.
+    this.axisNameX = 'front/back'
+    this.axisNameY = 'twist'
+    this.axisNameZ = 'side'
+
+    /**
+     * Rotation order for Euler angles.
+     * Default is YXZ: we want to "twist" first,
+     * before moving "front/back" or "side".
+     * @type {string}
+     */
     this.rotationOrder = rotationOrder || 'YXZ'
+
+    /**
+     * Volume instance to visualize a
+     * "body part box" from this joint.
+     * If `null`, nothing will be rendered.
+     * @type {?Volume}
+     */
+    this.volume = volume
   }
 }
 
@@ -60,6 +79,7 @@ function ifNull (value, def) {
 }
 
 /**
- * @typedef {{x?: number, y?: number, z?: number}} Vector
+ * @typedef {{x?: number, y?: number, z?: number}} Vector3
  * @typedef {{xMin?: number, xMax?: number, yMin?: number, yMax?: number, zMin?: number, zMax?: number}} RotationLimits
+ * @typedef { import("./Volume").Volume } Volume
  */

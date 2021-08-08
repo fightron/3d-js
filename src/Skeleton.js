@@ -10,24 +10,28 @@ export class Skeleton {
     this.joints = new Joints(this)
 
     /** @type {Joint} */
-    this.root = this.joints.root
+    this.root = null
 
     /**
      * Usually a THREE Skeleton, but can be something else
      * depending on the rendering engine.
      */
     this.renderable = null
-
-    this.build()
   }
 
   /**
    * Builds joints for specialized skeletons.
-   * @abstract Must be implemented in subclasses.
+   * Must be overriden by subclasses, passing an array of definitions.
+   * @param {Array<JointDefinition>} definitions
    */
-  build () {}
+  build (definitions) {
+    for (var definition of definitions) {
+      this.joints.create(definition)
+    }
+  }
 }
 
 /**
  * @typedef { import("./Joint").Joint } Joint
+ * @typedef { import("./JointDefinition").JointDefinition } JointDefinition
  */
