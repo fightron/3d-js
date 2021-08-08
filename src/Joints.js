@@ -54,13 +54,6 @@ export class Joints extends Map {
     }
 
     var joint = new Joint(definition)
-    var jointPosition = joint.position
-
-    jointPosition.x = definition.positionX
-    jointPosition.y = definition.positionY
-    jointPosition.z = definition.positionZ
-
-    joint.rotation.order = definition.rotationOrder
 
     if (parent) {
       joint.parent = parent

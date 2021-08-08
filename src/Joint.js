@@ -23,6 +23,14 @@ export class Joint extends Bone {
     /** @type {JointDefinition} */
     this.definition = definition
 
+    var position = this.position
+
+    position.x = definition.positionX
+    position.y = definition.positionY
+    position.z = definition.positionZ
+
+    this.rotation.order = definition.rotationOrder
+
     /**
      * Usually a THREE Mesh, but can be something else
      * depending on the rendering engine.
