@@ -1,47 +1,27 @@
 # @fightron/skeleton
 
-Proposal for skeleton handling in the Fightron Engine.
+Skeleton structure for creating rigs in the Fightron Engine. It uses `THREE.Bone` under the hood.
 
-## Proposed Usage
+## Usage
 
 ```javascript
-
-// Create a new Skeleton instance with a root joint at x=0, y=0, z=0
+// Create a new Skeleton instance.
 var skeleton = new Skeleton()
 
-// Add a new joint above the root
-var joint = skeleton.joints.create(0, 1, 0)
-joint.parent = skeleton.joints.root
+// Create JointDefinition instances that can be
+// reused to create multiple joints of the same type.
+// Custom skeletons create their own, long-lived definitions.
+var rootDef = new JointDefinition('root', null)
+var spineDef = new JointDefinition('spine', 'root')
 
-// Alternatively:
-var joint = skeleton.joints.root.append(0, 1, 0)
+// Build the skeleton with the above definitions.
+// This will create joint instances in skeleton.joints.
+skeleton.build([rootDef, spineDef])
 
-// Set the rotation of a joint
-joint.rotation.set(0, 0.3, 0)
+// Fetch a joint by name to manipulate it.
+var spine = skeleton.joints.get('spine')
 
-// Alternatively:
-joint.rotation.y = 0.3
-
-// Set a joint's Euler rotation order
-joint.rotation.order = "YXZ"
-
-// Set the quaternion rotation of a joint
-joint.quaternion.set(0, 0.2, 0.3, 1)
-
-// Alternatively:
-joint.quaternion.y = 0.2
-joint.quaternion.z = 0.3
-joint.quaternion.w = 1
-
-// Reposition entire skeleton
-skeleton.joints.root.position.set(3, 0, 0)
-
-// Alternatively:
-skeleton.joints.root.position.x = 3
-
-// Name a joint
-joint.name = "spine1"
-
-// Fetch a joint by name
-assert(joint == skeleton.joints.get("spine1"))
+// Joints are THREE.Bone instances, so they have access to
+// scale, position, rotation, and quaternion.
+spine.position.y = 5
 ```
