@@ -7,14 +7,33 @@ import { JointDefinition } from '../src/JointDefinition.js'
 import { Volume } from '../src/Volume.js'
 
 describe('JointDefinition', function () {
+  it('sets defaults', function () {
+    var def = new JointDefinition({ name: 'test' })
+    expect(def.parent).to.eq(null)
+    expect(def.positionX).to.eq(0.0)
+    expect(def.positionY).to.eq(0.0)
+    expect(def.positionZ).to.eq(0.0)
+    expect(def.minRotationX).to.eq(-Infinity)
+    expect(def.maxRotationX).to.eq(Infinity)
+    expect(def.minRotationY).to.eq(-Infinity)
+    expect(def.maxRotationY).to.eq(Infinity)
+    expect(def.minRotationZ).to.eq(-Infinity)
+    expect(def.maxRotationZ).to.eq(Infinity)
+    expect(def.rotationOrder).to.eq('YXZ')
+    expect(def.axisNameX).to.eq('Front/Back')
+    expect(def.axisNameY).to.eq('Twist')
+    expect(def.axisNameZ).to.eq('Side')
+    expect(def.volume).to.eq(null)
+  })
+
   it('sets name', function () {
     var def = new JointDefinition({ name: 'test' })
     expect(def.name).to.eq('test')
   })
 
-  it('sets parentName', function () {
+  it('sets parent', function () {
     var def = new JointDefinition({ name: 'test', parent: 'parent' })
-    expect(def.parentName).to.eq('parent')
+    expect(def.parent).to.eq('parent')
   })
 
   it('sets rotationOrder', function () {

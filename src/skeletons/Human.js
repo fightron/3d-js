@@ -82,10 +82,10 @@ const toesVolume = new Volume({ width: TOES_WIDTH, height: TOES_HEIGHT, depth: T
 
 /** @type {Array<JointDefinition>} */
 export const HUMAN_SKELETON_DEFINITIONS = [
-  // The root joint is only used for positioning.
+  // The root joint is only used for positioning and rotation outside poses.
   new JointDefinition({ name: '_', parent: null }),
 
-  // The center joint is used to rotate the entire body.
+  // The center joint is used to rotate the entire body in a pose.
   new JointDefinition({ name: 'Cn', parent: '_', position: { y: WAIST_HEIGHT + LEG_UPPER_HEIGHT + LEG_LOWER_HEIGHT + FOOT_HEIGHT } }),
 
   // Upper and Lower bodies can be rotated independently.
@@ -117,9 +117,9 @@ export const HUMAN_SKELETON_DEFINITIONS = [
   // Head (Upper Neck)
   new JointDefinition({ name: 'H', parent: 'N', position: { y: NECK_HEIGHT }, volume: headVolume }),
 
-  // Collar joints
-  new JointDefinition({ name: 'lC', parent: 'S', position: { x: SHOULDER_OFFSET_X, y: SHOULDER_OFFSET_Y } }),
-  new JointDefinition({ name: 'rC', parent: 'S', position: { x: -SHOULDER_OFFSET_X, y: SHOULDER_OFFSET_Y } }),
+  // Clavicles
+  new JointDefinition({ name: 'lC', parent: 'S', position: { x: SHOULDER_OFFSET_X, y: SHOULDER_OFFSET_Y }, axisNameX: 'Twist', axisNameY: 'Front/Back', axisNameZ: 'Up/Down' }),
+  new JointDefinition({ name: 'rC', parent: 'S', position: { x: -SHOULDER_OFFSET_X, y: SHOULDER_OFFSET_Y }, axisNameX: 'Twist', axisNameY: 'Front/Back', axisNameZ: 'Up/Down' }),
 
   // Shouders
   new JointDefinition({ name: 'lS', parent: 'lC', position: { x: ARM_UPPER_OFFSET_X, y: -ARM_UPPER_OFFSET_Y } }),

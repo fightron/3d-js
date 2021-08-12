@@ -6,14 +6,14 @@ import { expect } from '@dimensionalpocket/development'
 import { Volume } from '../src/Volume.js'
 
 describe('Volume', function () {
-  it('initializes with zero values as defaults', function () {
+  it('sets defaults', function () {
     var vol = new Volume()
-    expect(vol.width).to.eq(0)
-    expect(vol.height).to.eq(0)
-    expect(vol.depth).to.eq(0)
-    expect(vol.translationX).to.eq(0)
-    expect(vol.translationY).to.eq(0)
-    expect(vol.translationZ).to.eq(0)
+    expect(vol.width).to.eq(0.0)
+    expect(vol.height).to.eq(0.0)
+    expect(vol.depth).to.eq(0.0)
+    expect(vol.translationX).to.eq(0.0)
+    expect(vol.translationY).to.eq(0.0)
+    expect(vol.translationZ).to.eq(0.0)
     expect(vol.color).to.eq('white')
   })
 

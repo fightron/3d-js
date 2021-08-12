@@ -30,16 +30,16 @@ export class JointDefinition {
     position = { x: 0.0, y: 0.0, z: 0.0 },
     limits = { xMin: -Infinity, xMax: Infinity, yMin: -Infinity, yMax: Infinity, zMin: -Infinity, zMax: Infinity },
     rotationOrder = 'YXZ',
-    axisNameX = 'front/back',
-    axisNameY = 'twist',
-    axisNameZ = 'side',
+    axisNameX = 'Front/Back',
+    axisNameY = 'Twist',
+    axisNameZ = 'Side',
     volume = null
   }) {
     /** @type {string} */
     this.name = name
 
     /** @type {?string} */
-    this.parentName = parent
+    this.parent = parent
 
     /** @type {number} */
     this.positionX = position.x || 0.0
@@ -102,7 +102,5 @@ function ifNull (value, def) {
 }
 
 /**
- * @typedef {{x?: number, y?: number, z?: number}} Vector3
- * @typedef {{xMin?: number, xMax?: number, yMin?: number, yMax?: number, zMin?: number, zMax?: number}} limits
  * @typedef { import("./Volume").Volume } Volume
  */
