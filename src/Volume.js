@@ -9,40 +9,45 @@
  */
 export class Volume {
   /**
-   * @param {Dimensions} [dimensions]
-   * @param {Vector3} [translation]
-   * @param {string} [color]
+   * @param {object} [opts]
+   * @param {number} [opts.width]
+   * @param {number} [opts.height]
+   * @param {number} [opts.depth]
+   * @param {number} [opts.translationX]
+   * @param {number} [opts.translationY]
+   * @param {number} [opts.translationZ]
+   * @param {string} [opts.color]
    */
-  constructor (dimensions = {}, translation = {}, color = 'white') {
+  constructor ({ width = 0.0, height = 0.0, depth = 0.0, translationX = 0.0, translationY = 0.0, translationZ = 0.0, color = 'white' } = {}) {
     /**
      * @type {number}
      */
-    this.width = dimensions.width || 0.0
+    this.width = width
 
     /**
      * @type {number}
      */
-    this.height = dimensions.height || 0.0
+    this.height = height
 
     /**
      * @type {number}
      */
-    this.depth = dimensions.depth || 0.0
+    this.depth = depth
 
     /**
      * @type {number}
      */
-    this.translationX = translation.x || 0.0
+    this.translationX = translationX
 
     /**
      * @type {number}
      */
-    this.translationY = translation.y || 0.0
+    this.translationY = translationY
 
     /**
      * @type {number}
      */
-    this.translationZ = translation.z || 0.0
+    this.translationZ = translationZ
 
     /**
      * Color of the rendered volume.
@@ -51,8 +56,3 @@ export class Volume {
     this.color = color
   }
 }
-
-/**
- * @typedef {{width?: number, height?: number, depth?: number}} Dimensions
- * @typedef {{x?: number, y?: number, z?: number}} Vector3
- */

@@ -8,7 +8,7 @@ import { JointDefinition } from '../src/JointDefinition.js'
 
 describe('Joint', function () {
   before(function () {
-    this.definition = new JointDefinition('test', null, { y: 5 })
+    this.definition = new JointDefinition({ name: 'test', position: { y: 5 } })
   })
 
   describe('constructor', function () {

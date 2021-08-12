@@ -27,9 +27,9 @@ describe('Joints', function () {
 
   describe('#create', function () {
     before(function () {
-      this.rootDef = new JointDefinition('root', null)
+      this.rootDef = new JointDefinition({ name: 'root' })
       this.root = this.joints.create(this.rootDef)
-      this.spineDef = new JointDefinition('spine', 'root')
+      this.spineDef = new JointDefinition({ name: 'spine', parent: 'root' })
       this.spine = this.joints.create(this.spineDef)
     })
 
@@ -59,12 +59,12 @@ describe('Joints', function () {
     })
 
     it("throws an error when the parent name doesn't exist in collection", function () {
-      var invalidDef = new JointDefinition('spine3', 'invalid-joint')
+      var invalidDef = new JointDefinition({ name: 'spine3', parent: 'invalid-joint' })
       expect(_ => this.joints.create(invalidDef)).to.throw(/parent named "invalid-joint" not found in collection/)
     })
 
     it('throws an error when collection is not empty and a definition without parent is given', function () {
-      var invalidDef = new JointDefinition('spine3', null)
+      var invalidDef = new JointDefinition({ name: 'spine3' })
       expect(_ => this.joints.create(invalidDef)).to.throw(/parent required when collection is not empty/)
     })
   })
