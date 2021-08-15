@@ -6,14 +6,15 @@ import { expect } from '@dimensionalpocket/development'
 import { Volume } from '../src/Volume.js'
 
 describe('Volume', function () {
-  it('initializes with zero values as defaults', function () {
+  it('sets defaults', function () {
     var vol = new Volume()
-    expect(vol.width).to.eq(0)
-    expect(vol.height).to.eq(0)
-    expect(vol.depth).to.eq(0)
-    expect(vol.translationX).to.eq(0)
-    expect(vol.translationY).to.eq(0)
-    expect(vol.translationZ).to.eq(0)
+    expect(vol.width).to.eq(0.0)
+    expect(vol.height).to.eq(0.0)
+    expect(vol.depth).to.eq(0.0)
+    expect(vol.translationX).to.eq(0.0)
+    expect(vol.translationY).to.eq(0.0)
+    expect(vol.translationZ).to.eq(0.0)
+    expect(vol.color).to.eq('white')
   })
 
   it('sets width', function () {
@@ -32,22 +33,22 @@ describe('Volume', function () {
   })
 
   it('sets translationX', function () {
-    var vol = new Volume(undefined, { x: 1 })
+    var vol = new Volume({ translationX: 1 })
     expect(vol.translationX).to.eq(1)
   })
 
   it('sets translationY', function () {
-    var vol = new Volume(undefined, { y: 2 })
+    var vol = new Volume({ translationY: 2 })
     expect(vol.translationY).to.eq(2)
   })
 
   it('sets translationZ', function () {
-    var vol = new Volume(undefined, { z: 3 })
+    var vol = new Volume({ translationZ: 3 })
     expect(vol.translationZ).to.eq(3)
   })
 
   it('sets color', function () {
-    var vol = new Volume(undefined, undefined, 'red')
+    var vol = new Volume({ color: 'red' })
     expect(vol.color).to.eq('red')
   })
 })

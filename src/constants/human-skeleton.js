@@ -24,9 +24,9 @@ export const ABDOMEN_HEIGHT = ONE_HEAD / 2
 export const ABDOMEN_WIDTH = ONE_HEAD * 0.8
 export const ABDOMEN_DEPTH = CHEST_DEPTH * 0.8
 
-export const HIP_HEIGHT = ONE_HEAD / 2
-export const HIP_WIDTH = ONE_HEAD * 1.4
-export const HIP_DEPTH = ONE_HEAD * 0.5
+export const WAIST_HEIGHT = ONE_HEAD / 2
+export const WAIST_WIDTH = ONE_HEAD * 1.4
+export const WAIST_DEPTH = ONE_HEAD * 0.5
 
 // Arms
 
@@ -50,7 +50,7 @@ export const ARM_LOWER_DEPTH = ARM_UPPER_DEPTH
 
 export const LEG_UPPER_HEIGHT = ONE_HEAD * 2 // till bottom of knee
 export const LEG_UPPER_WIDTH = ONE_HEAD / 1.8
-export const LEG_UPPER_DEPTH = HIP_DEPTH
+export const LEG_UPPER_DEPTH = WAIST_DEPTH
 
 export const LEG_LOWER_HEIGHT = LEG_UPPER_HEIGHT
 export const LEG_LOWER_WIDTH = LEG_UPPER_WIDTH

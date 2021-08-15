@@ -11,9 +11,9 @@ import { JointDefinition } from '../../src/JointDefinition.js'
 describe('operations/BuildThreeSkeleton', function () {
   before(function () {
     this.skeleton = new Skeleton()
-    var rootDef = new JointDefinition('root', null)
-    var spine1Def = new JointDefinition('spine1', 'root')
-    var spine2Def = new JointDefinition('spine2', 'spine1')
+    var rootDef = new JointDefinition({ name: 'root' })
+    var spine1Def = new JointDefinition({ name: 'spine1', parent: 'root' })
+    var spine2Def = new JointDefinition({ name: 'spine2', parent: 'spine1' })
     this.skeleton.build([rootDef, spine1Def, spine2Def])
     var spine1 = this.skeleton.joints.get('spine1')
     spine1.position.y = 5

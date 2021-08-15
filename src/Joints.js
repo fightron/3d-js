@@ -40,7 +40,7 @@ export class Joints extends Map {
     }
 
     var parent = null
-    var parentName = definition.parentName
+    var parentName = definition.parent
 
     if (parentName) {
       parent = this.get(parentName)
