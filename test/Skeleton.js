@@ -6,10 +6,12 @@ import { expect } from '@dimensionalpocket/development'
 import { Joints } from '../src/Joints.js'
 
 import { Skeleton } from '../src/Skeleton.js'
+import { SkeletonDefinition } from '../src/SkeletonDefinition.js'
 
 describe('Skeleton', function () {
   before(function () {
-    this.skeleton = new Skeleton()
+    this.skeletonDef = new SkeletonDefinition({ name: 'test', joints: [] })
+    this.skeleton = new Skeleton(this.skeletonDef)
   })
 
   describe('constructor', function () {

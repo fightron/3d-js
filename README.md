@@ -1,27 +1,32 @@
 # @fightron/skeleton
 
+[![build](https://github.com/fightron/skeleton-js/actions/workflows/node.js.yml/badge.svg)](https://github.com/fightron/skeleton-js/actions/workflows/node.js.yml) [![Total alerts](https://img.shields.io/lgtm/alerts/g/fightron/skeleton-js.svg)](https://lgtm.com/projects/g/fightron/skeleton-js/alerts/) [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/fightron/skeleton-js.svg)](https://lgtm.com/projects/g/fightron/skeleton-js/context:javascript)
+
 Skeleton structure for creating rigs in the Fightron Engine. It uses `THREE.Bone` under the hood.
 
 ## Usage
 
+First create a `SkeletonDefinition`. Those instances are long-lived and act as blueprints for creating skeleton instances:
+
 ```javascript
-// Create a new Skeleton instance.
-var skeleton = new Skeleton()
+var skeletonDefinition = new SkeletonDefinition({
+  name: 'test-skeleton',
+  joints: [
+    new JointDefinition({name: 'root'}),
+    new JointDefinition({name: 'spine', parent: 'root'})
+  ]
+})
+```
 
-// Create JointDefinition instances that can be reused
-// to create multiple joints of the same type.
-// Custom skeletons create their own, long-lived definitions.
-var rootDef = new JointDefinition({name: 'root'})
-var spineDef = new JointDefinition({name: 'spine', parent: 'root'})
+Once a definition is created, you can use it to create multiple `Skeleton` instances:
 
-// Build the skeleton with the above definitions.
-// This will create joint instances in skeleton.joints.
-skeleton.build([rootDef, spineDef])
+```javascript
+var skeleton = new Skeleton(skeletonDefinition)
+```
 
-// Fetch a joint by name to manipulate it.
+Then you can manipulate its joints:
+
+```javascript
 var spine = skeleton.joints.get('spine')
-
-// Joints are THREE.Bone instances, so they have access to
-// scale, position, rotation, and quaternion.
 spine.rotation.y = 0.4
 ```
