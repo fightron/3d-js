@@ -2,7 +2,7 @@
 
 [![build](https://github.com/fightron/skeleton-js/actions/workflows/node.js.yml/badge.svg)](https://github.com/fightron/skeleton-js/actions/workflows/node.js.yml) [![Total alerts](https://img.shields.io/lgtm/alerts/g/fightron/skeleton-js.svg)](https://lgtm.com/projects/g/fightron/skeleton-js/alerts/) [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/fightron/skeleton-js.svg)](https://lgtm.com/projects/g/fightron/skeleton-js/context:javascript)
 
-Skeleton structure for creating rigs in the Fightron Engine. It uses `THREE.Bone` under the hood.
+Skeleton structure for creating rigs in the Fightron Engine.
 
 ## Usage
 
@@ -24,9 +24,6 @@ Once a definition is created, you can use it to create multiple `Skeleton` insta
 var skeleton = new Skeleton(skeletonDefinition)
 ```
 
-Then you can manipulate its joints:
+To manipulate its joints, you need to use a package with rendering features:
 
-```javascript
-var spine = skeleton.joints.get('spine')
-spine.rotation.y = 0.4
-```
+* [skeleton-three](https://github.com/fightron/skeleton-three) - Uses THREE skeleton and bone systems.
