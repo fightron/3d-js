@@ -2,14 +2,10 @@
 
 'use strict'
 
-// https://github.com/mrdoob/three.js/blob/master/src/objects/Bone.js
-import { Bone } from 'three/src/objects/Bone.js'
-
 /**
- * A Joint is a 3D point in space with a name that belongs to a
- * skeleton instance and have degrees of freedom.
+ * A Joint is a 3D point in space with a name that belongs to a skeleton instance.
  */
-export class Joint extends Bone {
+export class Joint {
   /**
    * @param {JointDefinition} definition - JointDefinition instance to create the joint off of.
    */
@@ -18,22 +14,15 @@ export class Joint extends Bone {
       throw new Error('Joint: definition is required')
     }
 
-    super()
+    /** @type {Joint} */
+    this.parent = null
 
     /** @type {JointDefinition} */
     this.definition = definition
 
-    var position = this.position
-
-    position.x = definition.positionX
-    position.y = definition.positionY
-    position.z = definition.positionZ
-
-    this.rotation.order = definition.rotationOrder
-
     /**
-     * Usually a THREE Mesh, but can be something else
-     * depending on the rendering engine.
+     * An object that can be rendered by an engine.
+     * @type {object}
      */
     this.renderable = null
   }
