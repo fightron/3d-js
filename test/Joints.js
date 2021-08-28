@@ -11,7 +11,7 @@ import { Skeleton } from '../src/Skeleton.js'
 
 describe('Joints', function () {
   before(function () {
-    this.skeleton = new Skeleton()
+    this.skeleton = new Skeleton({ name: 'test', joints: [] })
     this.joints = this.skeleton.joints
   })
 

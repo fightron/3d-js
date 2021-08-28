@@ -20,13 +20,10 @@
     "url": "https://github.com/fightron/skeleton/issues"
   },
   "homepage": "https://github.com/fightron/skeleton#readme",
-  "dependencies": {
-    "three": "github:dimensionalpocket/three.js#module"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@dimensionalpocket/development": "github:dimensionalpocket/development-js#0.4.0",
-    "@dimensionalpocket/release": "github:dimensionalpocket/release-js#0.2.0",
-    "@types/three": "0.130.1"
+    "@dimensionalpocket/release": "github:dimensionalpocket/release-js#0.2.0"
   },
   "babel": {
     "extends": "./node_modules/@dimensionalpocket/development/babel"

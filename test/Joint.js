@@ -20,10 +20,5 @@ describe('Joint', function () {
       var joint = new Joint(this.definition)
       expect(joint.definition).to.eq(this.definition)
     })
-
-    it('sets the position', function () {
-      var joint = new Joint(this.definition)
-      expect(joint.position.y).to.eq(5)
-    })
   })
 })
