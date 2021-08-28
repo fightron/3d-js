@@ -26,6 +26,7 @@ import {
 
 import { JointDefinition } from '../JointDefinition.js'
 import { Skeleton } from '../Skeleton.js'
+import { SkeletonDefinition } from '../SkeletonDefinition.js'
 import { Volume } from '../Volume.js'
 
 const rootVolume = new Volume({ width: 0.01, height: 0.01, depth: 0.5, translationY: 0.0049, color: 'red' })
@@ -154,8 +155,13 @@ export const HUMAN_SKELETON_DEFINITIONS = [
   new JointDefinition({ name: 'rPT', parent: 'rPM', position: { y: -PINKY_MID_HEIGHT }, volume: pinkyTipVolume })
 ]
 
+const humanSkeletonDefinition = new SkeletonDefinition({
+  name: 'human',
+  joints: HUMAN_SKELETON_DEFINITIONS
+})
+
 export class HumanSkeleton extends Skeleton {
-  build () {
-    return super.build(HUMAN_SKELETON_DEFINITIONS)
+  constructor () {
+    super(humanSkeletonDefinition)
   }
 }

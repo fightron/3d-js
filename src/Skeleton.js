@@ -5,27 +5,44 @@
 import { Joints } from './Joints.js'
 
 export class Skeleton {
-  constructor () {
-    /** @type {Joints} */
+  /**
+   * Creates a skeleton instance which joints can be manipulated.
+   * @param {SkeletonDefinition} definition - Skeleton definition.
+   */
+  constructor (definition) {
+    /**
+     * The definition of this skeleton, containing name, joint data, etc.
+     * @type {SkeletonDefinition}
+     */
+    this.definition = definition
+
+    /**
+     * Array of joint instances (including root).
+     * These joints can be manipulated.
+     * @type {Joints}
+     */
     this.joints = new Joints(this)
 
-    /** @type {Joint} */
+    /**
+     * The root joint of this skeleton.
+     * @type {Joint}
+     */
     this.root = null
 
     /**
      * Usually a THREE Skeleton, but can be something else
      * depending on the rendering engine.
+     * @type {object}
      */
     this.renderable = null
   }
 
   /**
    * Builds joints for specialized skeletons.
-   * Must be overriden by subclasses, passing an array of definitions.
-   * @param {Array<JointDefinition>} definitions
    */
-  build (definitions) {
-    for (var definition of definitions) {
+  build () {
+    var jointDefinitions = this.definition.joints
+    for (var definition of jointDefinitions) {
       this.joints.create(definition)
     }
   }
@@ -33,5 +50,5 @@ export class Skeleton {
 
 /**
  * @typedef { import("./Joint").Joint } Joint
- * @typedef { import("./JointDefinition").JointDefinition } JointDefinition
+ * @typedef { import("./SkeletonDefinition").SkeletonDefinition } SkeletonDefinition
  */
