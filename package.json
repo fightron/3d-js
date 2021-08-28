@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fightron/skeleton.git"
+    "url": "git+https://github.com/fightron/skeleton-js.git"
   },
   "author": "fightron.com",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/fightron/skeleton/issues"
+    "url": "https://github.com/fightron/skeleton-js/issues"
   },
-  "homepage": "https://github.com/fightron/skeleton#readme",
+  "homepage": "https://github.com/fightron/skeleton-js#readme",
   "dependencies": {},
   "devDependencies": {
     "@dimensionalpocket/development": "github:dimensionalpocket/development-js#0.4.0",
