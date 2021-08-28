@@ -1,5 +1,7 @@
 # @fightron/skeleton
 
+[![build](https://github.com/fightron/skeleton-js/actions/workflows/node.js.yml/badge.svg)](https://github.com/fightron/skeleton-js/actions/workflows/node.js.yml) [![Total alerts](https://img.shields.io/lgtm/alerts/g/fightron/skeleton-js.svg)](https://lgtm.com/projects/g/fightron/skeleton-js/alerts/) [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/fightron/skeleton-js.svg)](https://lgtm.com/projects/g/fightron/skeleton-js/context:javascript)
+
 Skeleton structure for creating rigs in the Fightron Engine. It uses `THREE.Bone` under the hood.
 
 ## Usage
