@@ -8,7 +8,6 @@ import { HumanSkeleton, HUMAN_SKELETON_DEFINITIONS } from '../../src/skeletons/H
 describe('skeletons/Human', function () {
   it('builds successfully', function () {
     var human = new HumanSkeleton()
-    human.build()
     expect(human.joints.size).to.eq(HUMAN_SKELETON_DEFINITIONS.length)
   })
 })

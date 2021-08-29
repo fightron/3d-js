@@ -35,6 +35,8 @@ export class Skeleton {
      * @type {object}
      */
     this.renderable = null
+
+    this.build()
   }
 
   /**
