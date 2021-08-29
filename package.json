@@ -1,6 +1,6 @@
 {
   "name": "@fightron/skeleton",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Fightron Engine's Skeleton class and utilities",
   "main": "index.js",
   "type": "module",
