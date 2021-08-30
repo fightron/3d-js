@@ -24,14 +24,7 @@ export class Skeleton {
     this.joints = new Joints(this)
 
     /**
-     * The root joint of this skeleton.
-     * @type {Joint}
-     */
-    this.root = null
-
-    /**
-     * Usually a THREE Skeleton, but can be something else
-     * depending on the rendering engine.
+     * An object to be rendered by an engine.
      * @type {object}
      */
     this.renderable = null
