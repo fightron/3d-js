@@ -4,25 +4,25 @@
 
 3D classes and utilities for the Fightron Engine.
 
-* `Geometry` - defines the structure of a 3d object.
-* `Vertex` - a single vertex in a geometry.
-* `Face3` - a single triangular face in a geometry.
-* `Material` - a single material instance, used to add color/textures/etc to a geometry in a mesh.
-* `Mesh` - combines a geometry and material to render an object on screen.
-* `Light`
-* `Sound`
-* `Camera`
-* [`Skeleton`](#skeleton) - a skeleton instance.
-* `SkeletonDefinition` - the blueprint of skeleton instances.
-* `Joint` - a single joint in a skeleton instance.
-* `JointDefinition` - the blueprint of a single joint. Used to create skeleton definitions.
-* `Joints` - a collection of joints.
-* `Volume` - holds data to render a box. Used mostly for preview purposes.
-* `Pose`
-* `Animation`
-* `Scene` - an instance that holds instances of meshes, lights, sounds, cameras, skeletons, poses, and animations.
-* `Client` - presents a scene and provides a messaging interface to allow its contents to be changed by external sources.
-* `Renderer` - an interface that connects a client to an external 3D renderer.
+* :red_circle: `Geometry` - defines the structure of a 3d object.
+* :red_circle: `Vertex` - a single vertex in a geometry.
+* :red_circle: `Face3` - a single triangular face in a geometry.
+* :red_circle: `Material` - a single material instance, used to add color/textures/etc to a geometry in a mesh.
+* :red_circle: `Mesh` - combines a geometry and material to render an object on screen.
+* :red_circle: `Light`
+* :red_circle: `Sound`
+* :red_circle: `Camera`
+* :green_circle: [`Skeleton`](#skeleton) - a skeleton instance.
+* :green_circle: `SkeletonDefinition` - the blueprint of skeleton instances.
+* :green_circle: `Joint` - a single joint in a skeleton instance.
+* :green_circle: `JointDefinition` - the blueprint of a single joint. Used to create skeleton definitions.
+* :green_circle: `Joints` - a collection of joints.
+* :green_circle: `Volume` - holds data to render a box. Used mostly for preview purposes.
+* :red_circle: `Pose`
+* :red_circle: `Animation`
+* :red_circle: `Scene` - an instance that holds instances of meshes, lights, sounds, cameras, skeletons, poses, and animations.
+* :red_circle: `Client` - presents a scene and provides a messaging interface to allow its contents to be changed by external sources.
+* :yellow_circle: `Renderer` - an interface that connects a client to an external 3D renderer.
 
 ---
 
