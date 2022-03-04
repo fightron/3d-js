@@ -4,22 +4,25 @@
 
 3D classes and utilities for the Fightron Engine.
 
+* `Geometry` - defines the structure of a 3d object.
+* `Vertex` - a single vertex in a geometry.
+* `Face3` - a single triangular face in a geometry.
+* `Material` - a single material instance, used to add color/textures/etc to a geometry in a mesh.
+* `Mesh` - combines a geometry and material to render an object on screen.
+* `Light`
+* `Sound`
+* `Camera`
 * [`Skeleton`](#skeleton) - a skeleton instance.
 * `SkeletonDefinition` - the blueprint of skeleton instances.
 * `Joint` - a single joint in a skeleton instance.
 * `JointDefinition` - the blueprint of a single joint. Used to create skeleton definitions.
 * `Joints` - a collection of joints.
 * `Volume` - holds data to render a box. Used mostly for preview purposes.
-
-TODO:
-
-* `Geometry` - defines the structure of a 3d object.
-* `Vertex` - a single vertex in a geometry.
-* `Face3` - a single triangular face in a geometry.
-* `Material` - a single material instance, used to add color/textures/etc to a geometry in a mesh.
-* `Mesh` - combines a geometry and material to render an object on screen.
-* `Scene` - an instance that holds instances of meshes in a hierarchy.
+* `Scene` - an instance that holds instances of meshes, lights, sounds, cameras, and skeletons.
 * `Client` - an interface that serves as a presenter and provides methods to allow its contents to be changed.
+* `Renderer` - provides methods to render objects and transform them.
+
+---
 
 # Skeleton
 
