@@ -77,6 +77,7 @@ export class JointDefinition {
      * Rotation order for Euler angles.
      * Default is YXZ: we want to "twist" first,
      * before moving "front/back" or "side".
+     *
      * @type {string}
      */
     this.rotationOrder = rotationOrder
@@ -85,6 +86,7 @@ export class JointDefinition {
      * Volume instance to visualize a
      * "body part box" from this joint.
      * If `null`, nothing will be rendered.
+     *
      * @type {?Volume}
      */
     this.volume = volume
