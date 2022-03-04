@@ -24,6 +24,7 @@ export class Joints extends Map {
 
   /**
    * Creates a Joint instance from a definition and adds the joint to this collection.
+   *
    * @param {JointDefinition} definition - JointDefinition to create the joint off of
    * @return {Joint} - the created Joint
    */

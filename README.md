@@ -22,11 +22,20 @@
 * :red_circle: `Animation`
 * :red_circle: `Scene` - an instance that holds instances of meshes, lights, sounds, cameras, skeletons, poses, and animations.
 * :red_circle: `Client` - presents a scene and provides a messaging interface to allow its contents to be changed by external sources.
-* :yellow_circle: `Renderer` - an interface that connects a client to an external 3D renderer.
+* :yellow_circle: [`Renderer`](#renderer) - an interface that connects a client to an external 3D renderer.
 
 ---
 
 # Skeleton
+
+Related classes:
+
+* `Skeleton`
+* `SkeletonDefinition`
+* `Joint`
+* `JointDefinition`
+* `Joints`
+* `Volume`
 
 ## Usage
 
@@ -48,12 +57,12 @@ Once a definition is created, you can use it to create multiple `Skeleton` insta
 var skeleton = new Skeleton(skeletonDefinition)
 ```
 
-To manipulate its joints, you need to use an external renderer.
+To manipulate its joints, you need to use an external [renderer](#renderer).
 
 # Renderer
 
 The Renderer class in this library provides an interface for subclasses to follow.
 
-List of renderers:
+List of official renderers:
 
 * [3d-three](https://github.com/fightron/3d-three) - THREE.js renderer
