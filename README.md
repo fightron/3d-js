@@ -1,8 +1,27 @@
-# @fightron/skeleton
+# @fightron/3d
 
-[![build](https://github.com/fightron/skeleton-js/actions/workflows/node.js.yml/badge.svg)](https://github.com/fightron/skeleton-js/actions/workflows/node.js.yml) [![Total alerts](https://img.shields.io/lgtm/alerts/g/fightron/skeleton-js.svg)](https://lgtm.com/projects/g/fightron/skeleton-js/alerts/) [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/fightron/skeleton-js.svg)](https://lgtm.com/projects/g/fightron/skeleton-js/context:javascript)
+[![build](https://github.com/fightron/3d-js/actions/workflows/node.js.yml/badge.svg)](https://github.com/fightron/3d-js/actions/workflows/node.js.yml) [![Total alerts](https://img.shields.io/lgtm/alerts/g/fightron/3d-js.svg)](https://lgtm.com/projects/g/fightron/3d-js/alerts/) [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/fightron/3d-js.svg)](https://lgtm.com/projects/g/fightron/3d-js/context:javascript)
 
-Skeleton structure for creating rigs in the Fightron Engine.
+3D classes and utilities for the Fightron Engine.
+
+* [`Skeleton`](#skeleton) - a skeleton instance.
+* `SkeletonDefinition` - the blueprint of skeleton instances.
+* `Joint` - a single joint in a skeleton instance.
+* `JointDefinition` - the blueprint of a single joint. Used to create skeleton definitions.
+* `Joints` - a collection of joints.
+* `Volume` - holds data to render a box. Used mostly for preview purposes.
+
+TODO:
+
+* `Geometry` - defines the structure of a 3d object.
+* `Vertex` - a single vertex in a geometry.
+* `Face3` - a single triangular face in a geometry.
+* `Material` - a single material instance, used to add color/textures/etc to a geometry in a mesh.
+* `Mesh` - combines a geometry and material to render an object on screen.
+* `Scene` - an instance that holds instances of meshes in a hierarchy.
+* `Client` - an interface that serves as a presenter and provides methods to allow its contents to be changed.
+
+# Skeleton
 
 ## Usage
 
@@ -26,4 +45,4 @@ var skeleton = new Skeleton(skeletonDefinition)
 
 To manipulate its joints, you need to use a package with rendering features:
 
-* [skeleton-three](https://github.com/fightron/skeleton-three) - Uses THREE skeleton and bone systems.
+* [3d-three](https://github.com/fightron/3d-three) - Uses THREE skeleton and bone systems as renderables.
