@@ -7,11 +7,13 @@ import { Joints } from './Joints.js'
 export class Skeleton {
   /**
    * Creates a skeleton instance which joints can be manipulated.
+   *
    * @param {SkeletonDefinition} definition - Skeleton definition.
    */
   constructor (definition) {
     /**
      * The definition of this skeleton, containing name, joint data, etc.
+     *
      * @type {SkeletonDefinition}
      */
     this.definition = definition
@@ -19,12 +21,14 @@ export class Skeleton {
     /**
      * Array of joint instances (including root).
      * These joints can be manipulated.
+     *
      * @type {Joints}
      */
     this.joints = new Joints(this)
 
     /**
      * The root joint of this skeleton.
+     *
      * @type {Joint}
      */
     this.root = null
@@ -32,6 +36,7 @@ export class Skeleton {
     /**
      * Usually a THREE Skeleton, but can be something else
      * depending on the rendering engine.
+     *
      * @type {object}
      */
     this.renderable = null

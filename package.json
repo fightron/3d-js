@@ -1,7 +1,7 @@
 {
-  "name": "@fightron/skeleton",
+  "name": "@fightron/3d",
   "version": "0.1.1",
-  "description": "Fightron Engine's Skeleton class and utilities",
+  "description": "3D classes and utilities for the Fightron Engine",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fightron/skeleton-js.git"
+    "url": "git+https://github.com/fightron/3d-js.git"
   },
   "author": "fightron.com",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/fightron/skeleton-js/issues"
+    "url": "https://github.com/fightron/3d-js/issues"
   },
-  "homepage": "https://github.com/fightron/skeleton-js#readme",
+  "homepage": "https://github.com/fightron/3d-js#readme",
   "dependencies": {},
   "devDependencies": {
     "@dimensionalpocket/development": "github:dimensionalpocket/development-js#0.4.0",

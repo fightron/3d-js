@@ -11,12 +11,14 @@ export class SkeletonDefinition {
   constructor ({ name, joints }) {
     /**
      * Skeleton name.
+     *
      * @type {string}
      */
     this.name = name
 
     /**
      * Array of joint definitions.
+     *
      * @type {Array<JointDefinition>}
      */
     this.joints = joints

@@ -51,6 +51,7 @@ export class Volume {
 
     /**
      * Color of the rendered volume.
+     *
      * @type {string}
      */
     this.color = color
