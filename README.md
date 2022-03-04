@@ -18,9 +18,11 @@
 * `JointDefinition` - the blueprint of a single joint. Used to create skeleton definitions.
 * `Joints` - a collection of joints.
 * `Volume` - holds data to render a box. Used mostly for preview purposes.
-* `Scene` - an instance that holds instances of meshes, lights, sounds, cameras, and skeletons.
-* `Client` - an interface that serves as a presenter and provides methods to allow its contents to be changed.
-* `Renderer` - provides methods to render objects and transform them.
+* `Pose`
+* `Animation`
+* `Scene` - an instance that holds instances of meshes, lights, sounds, cameras, skeletons, poses, and animations.
+* `Client` - presents a scene and provides a messaging interface to allow its contents to be changed by external sources.
+* `Renderer` - an interface that connects a client to an external 3D renderer.
 
 ---
 
@@ -46,6 +48,12 @@ Once a definition is created, you can use it to create multiple `Skeleton` insta
 var skeleton = new Skeleton(skeletonDefinition)
 ```
 
-To manipulate its joints, you need to use a package with rendering features:
+To manipulate its joints, you need to use an external renderer.
 
-* [3d-three](https://github.com/fightron/3d-three) - Uses THREE skeleton and bone systems as renderables.
+# Renderer
+
+The Renderer class in this library provides an interface for subclasses to follow.
+
+List of renderers:
+
+* [3d-three](https://github.com/fightron/3d-three) - THREE.js renderer
