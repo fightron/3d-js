@@ -4,202 +4,287 @@
 
 export class Renderer {
   /**
-   * Sets or removes the parent of a 3D object.
-   * Must be defined in subclasses.
+   * Sets or removes the parent of a renderable.
    *
+   * @param {any} _renderable
+   * @param {any} _parent
+   * @returns {boolean}
    * @abstract
    */
-  setParent () {
-    throw new Error(`${this.constructor.name}#setParent is not implemented`)
+  setParent (_renderable, _parent) {
+    console.error(`${this.constructor.name}#setParent is not implemented`)
+    return false
   }
 
   /**
-   * Sets the overall position (x, y, z) of a 3D object.
-   * Must be defined in subclasses.
+   * Sets the overall position (x, y, z) of a renderable.
    *
+   * @param {any} _renderable
+   * @param {number} _x
+   * @param {number} _y
+   * @param {number} _z
+   * @returns {boolean}
    * @abstract
    */
-  setPosition () {
-    throw new Error(`${this.constructor.name}#setPosition is not implemented`)
+  setPosition (_renderable, _x, _y, _z) {
+    console.error(`${this.constructor.name}#setPosition is not implemented`)
+    return false
   }
 
   /**
-   * Sets the X position of a 3D object.
-   * Must be defined in subclasses.
+   * Sets the X position of a renderable.
    *
+   * @param {any} _renderable
+   * @param {number} _x
+   * @returns {boolean}
    * @abstract
    */
-  setPositionX () {
-    throw new Error(`${this.constructor.name}#setPositionX is not implemented`)
+  setPositionX (_renderable, _x) {
+    console.error(`${this.constructor.name}#setPositionX is not implemented`)
+    return false
   }
 
   /**
-   * Sets the Y position of a 3D object.
-   * Must be defined in subclasses.
+   * Sets the Y position of a renderable.
    *
+   * @param {any} _renderable
+   * @param {number} _y
+   * @returns {boolean}
    * @abstract
    */
-  setPositionY () {
-    throw new Error(`${this.constructor.name}#setPositionY is not implemented`)
+  setPositionY (_renderable, _y) {
+    console.error(`${this.constructor.name}#setPositionY is not implemented`)
+    return false
   }
 
   /**
-   * Sets the X position of a 3D object.
-   * Must be defined in subclasses.
+   * Sets the Z position of a renderable.
    *
+   * @param {any} _renderable
+   * @param {number} _z
+   * @returns {boolean}
    * @abstract
    */
-  setPositionZ () {
-    throw new Error(`${this.constructor.name}#setPositionZ is not implemented`)
+  setPositionZ (_renderable, _z) {
+    console.error(`${this.constructor.name}#setPositionZ is not implemented`)
+    return false
   }
 
   /**
-   * Sets the Euler position of a 3D object.
-   * Must be defined in subclasses.
+   * Sets the Euler rotation of a renderable.
    *
+   * @param {any} _renderable
+   * @param {number} _x
+   * @param {number} _y
+   * @param {number} _z
+   * @returns {boolean}
    * @abstract
    */
-  setRotation () {
-    throw new Error(`${this.constructor.name}#setRotation is not implemented`)
+  setRotation (_renderable, _x, _y, _z) {
+    console.error(`${this.constructor.name}#setRotation is not implemented`)
+    return false
   }
 
   /**
-   * Sets the quaternions of a 3D object.
-   * Must be defined in subclasses.
+   * Sets the Euler rotation order of a renderable.
    *
+   * @param {any} _renderable
+   * @param {string} _order
+   * @returns {boolean}
    * @abstract
    */
-  setQuaternion () {
-    throw new Error(`${this.constructor.name}#setQuaternion is not implemented`)
+  setRotationOrder (_renderable, _order) {
+    console.error(`${this.constructor.name}#setRotationOrder is not implemented`)
+    return false
   }
 
   /**
-   * Sets the overall scale (x, y, z) of a 3D object.
-   * Must be defined in subclasses.
+   * Sets the quaternions of a renderable.
    *
+   * @param {any} _renderable
+   * @param {number} _x
+   * @param {number} _y
+   * @param {number} _z
+   * @param {number} _w
+   * @returns {boolean}
    * @abstract
    */
-  setScale () {
-    throw new Error(`${this.constructor.name}#setScale is not implemented`)
+  setQuaternion (_renderable, _x, _y, _z, _w) {
+    console.error(`${this.constructor.name}#setQuaternion is not implemented`)
+    return false
   }
 
   /**
-   * Sets the X scale of a 3D object.
-   * Must be defined in subclasses.
+   * Sets the overall scale (x, y, z) of a renderable.
    *
+   * @param {any} _renderable
+   * @param {number} _x
+   * @param {number} _y
+   * @param {number} _z
+   * @returns {boolean}
    * @abstract
    */
-  setScaleX () {
-    throw new Error(`${this.constructor.name}#setScaleX is not implemented`)
+  setScale (_renderable, _x, _y, _z) {
+    console.error(`${this.constructor.name}#setScale is not implemented`)
+    return false
   }
 
   /**
-   * Sets the Y scale of a 3D object.
-   * Must be defined in subclasses.
+   * Sets the X scale of a renderable.
    *
+   * @param {any} _renderable
+   * @param {number} _x
+   * @returns {boolean}
    * @abstract
    */
-  setScaleY () {
-    throw new Error(`${this.constructor.name}#setScaleY is not implemented`)
+  setScaleX (_renderable, _x) {
+    console.error(`${this.constructor.name}#setScaleX is not implemented`)
+    return false
   }
 
   /**
-   * Sets the X scale of a 3D object.
-   * Must be defined in subclasses.
+   * Sets the Y scale of a renderable.
    *
+   * @param {any} _renderable
+   * @param {number} _y
+   * @returns {boolean}
    * @abstract
    */
-  setScaleZ () {
-    throw new Error(`${this.constructor.name}#setScaleZ is not implemented`)
+  setScaleY (_renderable, _y) {
+    console.error(`${this.constructor.name}#setScaleY is not implemented`)
+    return false
+  }
+
+  /**
+   * Sets the Z scale of a renderable.
+   *
+   * @param {any} _renderable
+   * @param {any} _z
+   * @returns {boolean}
+   * @abstract
+   */
+  setScaleZ (_renderable, _z) {
+    console.error(`${this.constructor.name}#setScaleZ is not implemented`)
+    return false
   }
 
   /**
    * Sets Geometry#renderable.
-   * Must be defined in subclasses.
    *
+   * @param {Geometry} _geometry
+   * @returns {boolean}
    * @abstract
    */
-  setGeometryRenderable () {
-    throw new Error(`${this.constructor.name}#setGeometryRenderable is not implemented`)
+  setGeometryRenderable (_geometry) {
+    console.error(`${this.constructor.name}#setGeometryRenderable is not implemented`)
+    return false
   }
 
   /**
    * Sets Skeleton#renderable.
-   * Must be defined in subclasses.
    *
+   * @param {Skeleton} _skeleton
+   * @returns {boolean}
    * @abstract
    */
-  setSkeletonRenderable () {
-    throw new Error(`${this.constructor.name}#setSkeletonRenderable is not implemented`)
+  setSkeletonRenderable (_skeleton) {
+    console.error(`${this.constructor.name}#setSkeletonRenderable is not implemented`)
+    return false
   }
 
   /**
    * Sets Joint#renderable.
-   * Must be defined in subclasses.
    *
+   * @param {Joint} _joint
+   * @returns {boolean}
    * @abstract
    */
-  setJointRenderable () {
-    throw new Error(`${this.constructor.name}#setJointRenderable is not implemented`)
+  setJointRenderable (_joint) {
+    console.error(`${this.constructor.name}#setJointRenderable is not implemented`)
+    return false
   }
 
   /**
    * Sets Material#renderable.
-   * Must be defined in subclasses.
    *
+   * @param {Material} _material
+   * @returns {boolean}
    * @abstract
    */
-  setMaterialRenderable () {
-    throw new Error(`${this.constructor.name}#setMaterialRenderable is not implemented`)
+  setMaterialRenderable (_material) {
+    console.error(`${this.constructor.name}#setMaterialRenderable is not implemented`)
+    return false
   }
 
   /**
    * Sets Mesh#renderable.
-   * Must be defined in subclasses.
    *
+   * @param {Mesh} _mesh
+   * @returns {boolean}
    * @abstract
    */
-  setMeshRenderable () {
-    throw new Error(`${this.constructor.name}#setMeshRenderable is not implemented`)
+  setMeshRenderable (_mesh) {
+    console.error(`${this.constructor.name}#setMeshRenderable is not implemented`)
+    return false
   }
 
   /**
    * Sets Light#renderable.
-   * Must be defined in subclasses.
    *
+   * @param {Light} _light
+   * @returns {boolean}
    * @abstract
    */
-  setLightRenderable () {
-    throw new Error(`${this.constructor.name}#setLightRenderable is not implemented`)
+  setLightRenderable (_light) {
+    console.error(`${this.constructor.name}#setLightRenderable is not implemented`)
+    return false
   }
 
   /**
    * Sets Sound#renderable.
-   * Must be defined in subclasses.
    *
+   * @param {Sound} _sound
+   * @returns {boolean}
    * @abstract
    */
-  setSoundRenderable () {
-    throw new Error(`${this.constructor.name}#setSoundRenderable is not implemented`)
+  setSoundRenderable (_sound) {
+    console.error(`${this.constructor.name}#setSoundRenderable is not implemented`)
+    return false
   }
 
   /**
    * Sets Camera#renderable.
-   * Must be defined in subclasses.
    *
+   * @param {Camera} _camera
+   * @returns {boolean}
    * @abstract
    */
-  setCameraRenderable () {
-    throw new Error(`${this.constructor.name}#setCameraRenderable is not implemented`)
+  setCameraRenderable (_camera) {
+    console.error(`${this.constructor.name}#setCameraRenderable is not implemented`)
+    return false
   }
 
   /**
    * Sets Scene#renderable.
-   * Must be defined in subclasses.
    *
+   * @param {Scene} _scene
+   * @returns {boolean}
    * @abstract
    */
-  setSceneRenderable () {
-    throw new Error(`${this.constructor.name}#setSceneRenderable is not implemented`)
+  setSceneRenderable (_scene) {
+    console.error(`${this.constructor.name}#setSceneRenderable is not implemented`)
+    return false
   }
 }
+
+/**
+ * @typedef { import("./Skeleton").Skeleton } Skeleton
+ * @typedef { import("./Joint").Joint } Joint
+ * @typedef { import("./Geometry").Geometry } Geometry
+ * @typedef { import("./Material").Material } Material
+ * @typedef { import("./Mesh").Mesh } Mesh
+ * @typedef { import("./Light").Light } Light
+ * @typedef { import("./Camera").Camera } Camera
+ * @typedef { import("./Sound").Sound } Sound
+ * @typedef { import("./Scene").Scene } Scene
+ */
