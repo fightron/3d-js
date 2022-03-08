@@ -2,7 +2,7 @@
 
 'use strict'
 
-import { expect } from '@dimensionalpocket/development'
+import { expect, sinon } from '@dimensionalpocket/development'
 import { Renderer } from '../src/Renderer.js'
 
 class TestRenderer extends Renderer {}
@@ -10,125 +10,221 @@ class TestRenderer extends Renderer {}
 describe('Renderer', function () {
   before(function () {
     this.renderer = new TestRenderer()
+    sinon.stub(console, 'error')
+  })
+
+  after(function () {
+    // @ts-ignore
+    console.error.restore()
   })
 
   describe('#setParent', function () {
-    it('throws an error', function () {
-      expect(() => { this.renderer.setParent() }).to.throw('TestRenderer#setParent is not implemented')
+    before(function () {
+      this.result = this.renderer.setParent()
+    })
+
+    it('logs an error', function () {
+      expect(console.error).to.have.been.calledWith('TestRenderer#setParent is not implemented')
     })
   })
 
   describe('#setPosition', function () {
-    it('throws an error', function () {
-      expect(() => { this.renderer.setPosition() }).to.throw('TestRenderer#setPosition is not implemented')
+    before(function () {
+      this.result = this.renderer.setPosition()
+    })
+
+    it('logs an error', function () {
+      expect(console.error).to.have.been.calledWith('TestRenderer#setPosition is not implemented')
     })
   })
 
   describe('#setPositionX', function () {
-    it('throws an error', function () {
-      expect(() => { this.renderer.setPositionX() }).to.throw('TestRenderer#setPositionX is not implemented')
+    before(function () {
+      this.result = this.renderer.setPositionX()
+    })
+
+    it('logs an error', function () {
+      expect(console.error).to.have.been.calledWith('TestRenderer#setPositionX is not implemented')
     })
   })
 
   describe('#setPositionY', function () {
-    it('throws an error', function () {
-      expect(() => { this.renderer.setPositionY() }).to.throw('TestRenderer#setPositionY is not implemented')
+    before(function () {
+      this.result = this.renderer.setPositionY()
+    })
+
+    it('logs an error', function () {
+      expect(console.error).to.have.been.calledWith('TestRenderer#setPositionY is not implemented')
     })
   })
 
   describe('#setPositionZ', function () {
-    it('throws an error', function () {
-      expect(() => { this.renderer.setPositionZ() }).to.throw('TestRenderer#setPositionZ is not implemented')
+    before(function () {
+      this.result = this.renderer.setPositionZ()
+    })
+
+    it('logs an error', function () {
+      expect(console.error).to.have.been.calledWith('TestRenderer#setPositionZ is not implemented')
     })
   })
 
   describe('#setRotation', function () {
-    it('throws an error', function () {
-      expect(() => { this.renderer.setRotation() }).to.throw('TestRenderer#setRotation is not implemented')
+    before(function () {
+      this.result = this.renderer.setRotation()
+    })
+
+    it('logs an error', function () {
+      expect(console.error).to.have.been.calledWith('TestRenderer#setRotation is not implemented')
+    })
+  })
+
+  describe('#setRotationOrder', function () {
+    before(function () {
+      this.result = this.renderer.setRotationOrder()
+    })
+
+    it('logs an error', function () {
+      expect(console.error).to.have.been.calledWith('TestRenderer#setRotation is not implemented')
     })
   })
 
   describe('#setQuaternion', function () {
-    it('throws an error', function () {
-      expect(() => { this.renderer.setQuaternion() }).to.throw('TestRenderer#setQuaternion is not implemented')
+    before(function () {
+      this.result = this.renderer.setQuaternion()
+    })
+
+    it('logs an error', function () {
+      expect(console.error).to.have.been.calledWith('TestRenderer#setQuaternion is not implemented')
     })
   })
 
   describe('#setScale', function () {
-    it('throws an error', function () {
-      expect(() => { this.renderer.setScale() }).to.throw('TestRenderer#setScale is not implemented')
+    before(function () {
+      this.result = this.renderer.setScale()
+    })
+
+    it('logs an error', function () {
+      expect(console.error).to.have.been.calledWith('TestRenderer#setScale is not implemented')
     })
   })
 
   describe('#setScaleX', function () {
-    it('throws an error', function () {
-      expect(() => { this.renderer.setScaleX() }).to.throw('TestRenderer#setScaleX is not implemented')
+    before(function () {
+      this.result = this.renderer.setScaleX()
+    })
+
+    it('logs an error', function () {
+      expect(console.error).to.have.been.calledWith('TestRenderer#setScaleX is not implemented')
     })
   })
 
   describe('#setScaleY', function () {
-    it('throws an error', function () {
-      expect(() => { this.renderer.setScaleY() }).to.throw('TestRenderer#setScaleY is not implemented')
+    before(function () {
+      this.result = this.renderer.setScaleY()
+    })
+
+    it('logs an error', function () {
+      expect(console.error).to.have.been.calledWith('TestRenderer#setScaleY is not implemented')
     })
   })
 
   describe('#setScaleZ', function () {
-    it('throws an error', function () {
-      expect(() => { this.renderer.setScaleZ() }).to.throw('TestRenderer#setScaleZ is not implemented')
+    before(function () {
+      this.result = this.renderer.setScaleZ()
+    })
+
+    it('logs an error', function () {
+      expect(console.error).to.have.been.calledWith('TestRenderer#setScaleZ is not implemented')
     })
   })
 
   describe('#setGeometryRenderable', function () {
-    it('throws an error', function () {
-      expect(() => { this.renderer.setGeometryRenderable() }).to.throw('TestRenderer#setGeometryRenderable is not implemented')
+    before(function () {
+      this.result = this.renderer.setGeometryRenderable()
+    })
+
+    it('logs an error', function () {
+      expect(console.error).to.have.been.calledWith('TestRenderer#setGeometryRenderable is not implemented')
     })
   })
 
   describe('#setSkeletonRenderable', function () {
-    it('throws an error', function () {
-      expect(() => { this.renderer.setSkeletonRenderable() }).to.throw('TestRenderer#setSkeletonRenderable is not implemented')
+    before(function () {
+      this.result = this.renderer.setSkeletonRenderable()
+    })
+
+    it('logs an error', function () {
+      expect(console.error).to.have.been.calledWith('TestRenderer#setSkeletonRenderable is not implemented')
     })
   })
 
   describe('#setJointRenderable', function () {
-    it('throws an error', function () {
-      expect(() => { this.renderer.setJointRenderable() }).to.throw('TestRenderer#setJointRenderable is not implemented')
+    before(function () {
+      this.result = this.renderer.setJointRenderable()
+    })
+
+    it('logs an error', function () {
+      expect(console.error).to.have.been.calledWith('TestRenderer#setJointRenderable is not implemented')
     })
   })
 
   describe('#setMaterialRenderable', function () {
-    it('throws an error', function () {
-      expect(() => { this.renderer.setMaterialRenderable() }).to.throw('TestRenderer#setMaterialRenderable is not implemented')
+    before(function () {
+      this.result = this.renderer.setMaterialRenderable()
+    })
+
+    it('logs an error', function () {
+      expect(console.error).to.have.been.calledWith('TestRenderer#setMaterialRenderable is not implemented')
     })
   })
 
   describe('#setMeshRenderable', function () {
-    it('throws an error', function () {
-      expect(() => { this.renderer.setMeshRenderable() }).to.throw('TestRenderer#setMeshRenderable is not implemented')
+    before(function () {
+      this.result = this.renderer.setMeshRenderable()
+    })
+
+    it('logs an error', function () {
+      expect(console.error).to.have.been.calledWith('TestRenderer#setMeshRenderable is not implemented')
     })
   })
 
   describe('#setLightRenderable', function () {
-    it('throws an error', function () {
-      expect(() => { this.renderer.setLightRenderable() }).to.throw('TestRenderer#setLightRenderable is not implemented')
+    before(function () {
+      this.result = this.renderer.setLightRenderable()
+    })
+
+    it('logs an error', function () {
+      expect(console.error).to.have.been.calledWith('TestRenderer#setLightRenderable is not implemented')
     })
   })
 
   describe('#setSoundRenderable', function () {
-    it('throws an error', function () {
-      expect(() => { this.renderer.setSoundRenderable() }).to.throw('TestRenderer#setSoundRenderable is not implemented')
+    before(function () {
+      this.result = this.renderer.setSoundRenderable()
+    })
+
+    it('logs an error', function () {
+      expect(console.error).to.have.been.calledWith('TestRenderer#setSoundRenderable is not implemented')
     })
   })
 
   describe('#setCameraRenderable', function () {
-    it('throws an error', function () {
-      expect(() => { this.renderer.setCameraRenderable() }).to.throw('TestRenderer#setCameraRenderable is not implemented')
+    before(function () {
+      this.result = this.renderer.setCameraRenderable()
+    })
+
+    it('logs an error', function () {
+      expect(console.error).to.have.been.calledWith('TestRenderer#setCameraRenderable is not implemented')
     })
   })
 
   describe('#setSceneRenderable', function () {
-    it('throws an error', function () {
-      expect(() => { this.renderer.setSceneRenderable() }).to.throw('TestRenderer#setSceneRenderable is not implemented')
+    before(function () {
+      this.result = this.renderer.setSceneRenderable()
+    })
+
+    it('logs an error', function () {
+      expect(console.error).to.have.been.calledWith('TestRenderer#setSceneRenderable is not implemented')
     })
   })
 })
