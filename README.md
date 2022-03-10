@@ -59,6 +59,23 @@ var skeleton = new Skeleton(skeletonDefinition)
 
 To manipulate its joints, you need to use an external [renderer](#renderer).
 
+# Pose
+
+```js
+var skeleton = new Skeleton(humanSkeletonDefinition)
+
+var pose = new Pose({
+  name: 'rotated-spine',
+  skeletonDefinition: humanSkeletonDefinition,
+  transforms: [
+    { joint: 'spine', rotationY: 0.3 }
+  ],
+  clear: true
+})
+
+pose.apply(skeleton)
+```
+
 # Renderer
 
 The Renderer class in this library provides an interface for subclasses to follow.

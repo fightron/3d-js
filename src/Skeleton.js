@@ -2,15 +2,20 @@
 
 'use strict'
 
+import EventEmitter from 'eventemitter3'
 import { Joints } from './Joints.js'
 
-export class Skeleton {
+export const JOINT_TRANSFORM_EVENT = 'joint-transform'
+
+export class Skeleton extends EventEmitter {
   /**
    * Creates a skeleton instance which joints can be manipulated.
    *
    * @param {SkeletonDefinition} definition - Skeleton definition.
    */
   constructor (definition) {
+    super()
+
     /**
      * The definition of this skeleton, containing name, joint data, etc.
      *

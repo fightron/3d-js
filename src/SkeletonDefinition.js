@@ -23,6 +23,20 @@ export class SkeletonDefinition {
      */
     this.joints = joints
   }
+
+  /**
+   * Returns a joint definition by name.
+   *
+   * @param {string} name - name of the joint
+   * @returns {JointDefinition}
+   */
+  getJointDefinition (name) {
+    for (var jointDef of this.joints) {
+      if (jointDef.name === name) return jointDef
+    }
+
+    return null
+  }
 }
 
 /**

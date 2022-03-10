@@ -19,7 +19,9 @@
     "url": "https://github.com/fightron/3d-js/issues"
   },
   "homepage": "https://github.com/fightron/3d-js#readme",
-  "dependencies": {},
+  "dependencies": {
+    "eventemitter3": "4.0.7"
+  },
   "devDependencies": {
     "@dimensionalpocket/development": "github:dimensionalpocket/development-js#0.5.2",
     "@dimensionalpocket/release": "github:dimensionalpocket/release-js#0.2.4"
