@@ -1,5 +1,3 @@
-// @ts-check
-
 'use strict'
 
 /**
@@ -9,14 +7,7 @@
  */
 export class JointVolume {
   /**
-   * @param {object} [opts]
-   * @param {number} [opts.width]
-   * @param {number} [opts.height]
-   * @param {number} [opts.depth]
-   * @param {number} [opts.translationX]
-   * @param {number} [opts.translationY]
-   * @param {number} [opts.translationZ]
-   * @param {string} [opts.color]
+   * @param {JointVolumeOptions} [options]
    */
   constructor ({ width = 0.0, height = 0.0, depth = 0.0, translationX = 0.0, translationY = 0.0, translationZ = 0.0, color = 'white' } = {}) {
     /**

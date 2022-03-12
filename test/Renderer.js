@@ -1,5 +1,3 @@
-// @ts-check
-
 'use strict'
 
 import { expect, sinon } from '@dimensionalpocket/development'
@@ -14,7 +12,6 @@ describe('Renderer', function () {
   })
 
   after(function () {
-    // @ts-ignore
     console.error.restore()
   })
 

@@ -1,5 +1,3 @@
-// @ts-check
-
 'use strict'
 
 export { Animation } from './src/Animation.js'

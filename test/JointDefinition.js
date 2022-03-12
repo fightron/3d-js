@@ -1,5 +1,3 @@
-// @ts-check
-
 'use strict'
 
 import { expect } from '@dimensionalpocket/development'
@@ -42,9 +40,10 @@ describe('JointDefinition', function () {
   })
 
   it('sets a volume if given', function () {
-    var volume = new JointVolume()
+    var volume = { width: 10 }
     var def = new JointDefinition({ name: 'test', volume })
-    expect(def.volume).to.eq(volume)
+    expect(def.volume).to.be.an.instanceOf(JointVolume)
+    expect(def.volume.width).to.eq(10)
   })
 
   context('position', function () {

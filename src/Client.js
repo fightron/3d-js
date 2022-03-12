@@ -1,7 +1,6 @@
-// @ts-check
-
 'use strict'
 
+import { ClientAddToCollection } from './operations/ClientAddToCollection.js'
 import { ClientCollections } from './operations/ClientCollections.js'
 
 export class Client {
@@ -20,7 +19,14 @@ export class Client {
     this.data = ClientCollections.generate()
   }
 
-  feed (/* args */) {
+  feed (/* arguments */) {
+    var command = arguments[0]
 
+    if (command === '+') {
+      return ClientAddToCollection.run(this, arguments[1], arguments[2])
+    }
+
+    console.error('Client#feed: unhandled command', command)
+    return false
   }
 }

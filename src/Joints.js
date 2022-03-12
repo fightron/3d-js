@@ -1,5 +1,3 @@
-// @ts-check
-
 'use strict'
 
 import { Joint } from './Joint.js'

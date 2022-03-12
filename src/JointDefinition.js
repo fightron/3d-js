@@ -1,28 +1,10 @@
-// @ts-check
-
 'use strict'
+
+import { JointVolume } from './JointVolume.js'
 
 export class JointDefinition {
   /**
-   * @param {object} opts
-   * @param {string} opts.name - Name of this joint.
-   * @param {?string} [opts.parent] - Name of the parent joint.
-   * @param {object} [opts.position]
-   * @param {number} [opts.position.x]
-   * @param {number} [opts.position.y]
-   * @param {number} [opts.position.z]
-   * @param {object} [opts.limits]
-   * @param {number} [opts.limits.xMin]
-   * @param {number} [opts.limits.xMax]
-   * @param {number} [opts.limits.yMin]
-   * @param {number} [opts.limits.yMax]
-   * @param {number} [opts.limits.zMin]
-   * @param {number} [opts.limits.zMax]
-   * @param {string} [opts.rotationOrder]
-   * @param {string} [opts.axisNameX]
-   * @param {string} [opts.axisNameY]
-   * @param {string} [opts.axisNameZ]
-   * @param {?JointVolume} [opts.volume]
+   * @param {JointDefinitionOptions} opts
    */
   constructor ({
     name,
@@ -42,31 +24,31 @@ export class JointDefinition {
     this.parent = parent
 
     /** @type {number} */
-    this.positionX = position.x || 0.0
+    this.positionX = position?.x || 0.0
 
     /** @type {number} */
-    this.positionY = position.y || 0.0
+    this.positionY = position?.y || 0.0
 
     /** @type {number} */
-    this.positionZ = position.z || 0.0
+    this.positionZ = position?.z || 0.0
 
     /** @type {number} */
-    this.minRotationX = ifNull(limits.xMin, -Infinity)
+    this.minRotationX = ifNull(limits?.xMin, -Infinity)
 
     /** @type {number} */
-    this.minRotationY = ifNull(limits.yMin, -Infinity)
+    this.minRotationY = ifNull(limits?.yMin, -Infinity)
 
     /** @type {number} */
-    this.minRotationZ = ifNull(limits.zMin, -Infinity)
+    this.minRotationZ = ifNull(limits?.zMin, -Infinity)
 
     /** @type {number} */
-    this.maxRotationX = ifNull(limits.xMax, Infinity)
+    this.maxRotationX = ifNull(limits?.xMax, Infinity)
 
     /** @type {number} */
-    this.maxRotationY = ifNull(limits.yMax, Infinity)
+    this.maxRotationY = ifNull(limits?.yMax, Infinity)
 
     /** @type {number} */
-    this.maxRotationZ = ifNull(limits.zMax, Infinity)
+    this.maxRotationZ = ifNull(limits?.zMax, Infinity)
 
     // Axis names are shown in editors.
     this.axisNameX = axisNameX
@@ -80,7 +62,7 @@ export class JointDefinition {
      *
      * @type {string}
      */
-    this.rotationOrder = rotationOrder
+    this.rotationOrder = rotationOrder || 'YXZ'
 
     /**
      * JointVolume instance to visualize a
@@ -89,7 +71,11 @@ export class JointDefinition {
      *
      * @type {?JointVolume}
      */
-    this.volume = volume
+    this.volume = null
+
+    if (volume) {
+      this.volume = new JointVolume(volume)
+    }
   }
 }
 

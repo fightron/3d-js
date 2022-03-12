@@ -2,11 +2,11 @@
 
 'use strict'
 
+import { JointDefinition } from './JointDefinition.js'
+
 export class SkeletonDefinition {
   /**
-   * @param {object} options
-   * @param {string} options.name - Name of this skeleton.
-   * @param {Array<JointDefinition>} options.joints - Array of JointDefinition instances that define this skeleton.
+   * @param {SkeletonDefinitionOptions} options
    */
   constructor ({ name, joints }) {
     /**
@@ -21,14 +21,17 @@ export class SkeletonDefinition {
      *
      * @type {Array<JointDefinition>}
      */
-    this.joints = joints
+    this.joints = []
+    for (var jointDefOpts of joints) {
+      this.joints.push(new JointDefinition(jointDefOpts))
+    }
   }
 
   /**
    * Returns a joint definition by name.
    *
    * @param {string} name - name of the joint
-   * @returns {JointDefinition}
+   * @returns {?JointDefinition}
    */
   getJointDefinition (name) {
     for (var jointDef of this.joints) {

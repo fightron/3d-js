@@ -1,5 +1,3 @@
-// @ts-check
-
 'use strict'
 
 export const ANIMATIONS = 'ani'
@@ -10,6 +8,7 @@ export const MATERIALS = 'mat'
 export const MESHES = 'msh'
 export const POSES = 'pose'
 export const SKELETONS = 'skt'
+export const SKELETON_DEFS = 'sktD'
 export const SOUNDS = 'snd'
 
 export class ClientCollections {
@@ -21,7 +20,7 @@ export class ClientCollections {
   static generate () {
     var data = new Map()
 
-    /** @type {Map<Animation>} */
+    /** @type {Map<Animation3D>} */
     var animations = new Map()
 
     /** @type {Map<Camera>} */

@@ -1,0 +1,7 @@
+/**
+ * @typedef {object} JointTransformOptions - options for initializing JointTransform instances.
+ * @property {string} joint - Joint name.
+ * @property {number} [rotationX]
+ * @property {number} [rotationY]
+ * @property {number} [rotationZ]
+ */

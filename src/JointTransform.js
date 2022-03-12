@@ -1,5 +1,3 @@
-// @ts-check
-
 'use strict'
 
 import { JOINT_TRANSFORM_EVENT } from './Skeleton.js'
@@ -44,5 +42,7 @@ export class JointTransform {
     // Tell the Client/Renderer that the joint has been updated,
     // since the joint instance doesn't hold any transforms.
     skeleton.emit(JOINT_TRANSFORM_EVENT, joint, this.rotationX, this.rotationY, this.rotationZ)
+
+    return true
   }
 }

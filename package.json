@@ -42,6 +42,9 @@
     "include": [
       "index.js",
       "src"
+    ],
+    "exclude": [
+      "src/types"
     ]
   },
   "engines": {

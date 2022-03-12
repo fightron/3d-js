@@ -1,5 +1,5 @@
 /**
- * The type returned by ClientCollection.run and used in Client#data.
+ * A Map of other Maps, indexed by a shorthand string.
  *
- * @typedef {Map<String,Map<number,Animation|Camera|Geometry|Light|Material|Mesh|Pose|Skeleton|Sound>>} ClientCollectionType
+ * @typedef {Map<string,Map<number|string,Animation3D|Camera|Geometry|Light|Material|Mesh|Pose|Skeleton|Sound>>} ClientCollectionType
  */

@@ -1,5 +1,5 @@
 /**
- * @typedef { import("../Animation").Animation } Animation
+ * @typedef { import("../Animation").Animation } Animation3D
  * @typedef { import("../Camera").Camera } Camera
  * @typedef { import("../Client").Client } Client
  * @typedef { import("../Geometry").Geometry } Geometry
@@ -17,4 +17,10 @@
  * @typedef { import("../Skeleton").Skeleton } Skeleton
  * @typedef { import("../SkeletonDefinition").SkeletonDefinition } SkeletonDefinition
  * @typedef { import("../Sound").Sound } Sound
+ */
+
+/**
+ * Some notes:
+ *
+ * - Animation is already used by lib.dom.d.ts
  */

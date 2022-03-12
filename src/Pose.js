@@ -1,5 +1,3 @@
-// @ts-check
-
 'use strict'
 
 import { JointTransform } from './JointTransform.js'
@@ -11,19 +9,11 @@ import { POSE_RESET_EVENT } from './Skeleton.js'
  */
 export class Pose {
   /**
-   * @typedef {Object} JointTransformOptions - options for initializing JointTransform instances.
-   * @property {string} joint - Joint name.
-   * @property {number} [rotationX]
-   * @property {number} [rotationY]
-   * @property {number} [rotationZ]
-   */
-
-  /**
    * @param {object} options
-   * @param {string} [options.name] - Name of the pose (optional).
+   * @param {?string} [options.name] - Name of the pose (optional).
    * @param {SkeletonDefinition} options.skeletonDefinition - SkeletonDefinition instance to use. Required.
    * @param {Array<JointTransformOptions>} options.transforms - An array of object literals for creating joint transforms.
-   * @param {boolean} options.clear - When `true`, will reset the skeleton pose before applying transforms.
+   * @param {boolean} [options.clear] - When `true`, will reset the skeleton pose before applying transforms.
    */
   constructor ({ name = null, skeletonDefinition, transforms = [], clear = false }) {
     if (!skeletonDefinition) {
@@ -37,16 +27,20 @@ export class Pose {
     this.skeletonDefinition = skeletonDefinition
 
     /** @type {Array<JointTransform>} */
+    // @ts-ignore - TS2322 - nulls are being filtered out at the end
     this.transforms = transforms.map(t => {
       var jointDef = skeletonDefinition.getJointDefinition(t.joint)
-      var transform = new JointTransform({
-        jointDefinition: jointDef,
-        rotationX: t.rotationX,
-        rotationY: t.rotationY,
-        rotationZ: t.rotationZ
-      })
-      return transform
-    })
+      if (jointDef) {
+        var transform = new JointTransform({
+          jointDefinition: jointDef,
+          rotationX: t.rotationX,
+          rotationY: t.rotationY,
+          rotationZ: t.rotationZ
+        })
+        return transform
+      }
+      return null
+    }).filter(t => t)
 
     /** @type {boolean} */
     this.clear = clear
