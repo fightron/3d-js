@@ -16,7 +16,7 @@ export class ClientCollections {
   /**
    * Returns a fresh map of collections to be used on a new client.
    *
-   * @returns {Map<Map>}
+   * @returns {ClientCollectionType}
    */
   static generate () {
     var data = new Map()
@@ -61,15 +61,3 @@ export class ClientCollections {
     return data
   }
 }
-
-/**
- * @typedef { import("../Animation").Animation } Animation
- * @typedef { import("../Camera").Camera } Camera
- * @typedef { import("../Geometry").Geometry } Geometry
- * @typedef { import("../Light").Light } Light
- * @typedef { import("../Material").Material } Material
- * @typedef { import("../Mesh").Mesh } Mesh
- * @typedef { import("../Pose").Pose } Pose
- * @typedef { import("../Skeleton").Skeleton } Skeleton
- * @typedef { import("../Sound").Sound } Sound
- */

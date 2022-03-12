@@ -38,7 +38,3 @@ export class SkeletonDefinition {
     return null
   }
 }
-
-/**
- * @typedef { import("./JointDefinition").JointDefinition } JointDefinition
- */

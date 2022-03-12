@@ -67,8 +67,3 @@ export class Pose {
     }
   }
 }
-
-/**
- * @typedef { import("./Skeleton").Skeleton } Skeleton
- * @typedef { import("./SkeletonDefinition").SkeletonDefinition } SkeletonDefinition
- */

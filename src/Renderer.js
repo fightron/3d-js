@@ -276,15 +276,3 @@ export class Renderer {
     return false
   }
 }
-
-/**
- * @typedef { import("./Skeleton").Skeleton } Skeleton
- * @typedef { import("./Joint").Joint } Joint
- * @typedef { import("./Geometry").Geometry } Geometry
- * @typedef { import("./Material").Material } Material
- * @typedef { import("./Mesh").Mesh } Mesh
- * @typedef { import("./Light").Light } Light
- * @typedef { import("./Camera").Camera } Camera
- * @typedef { import("./Sound").Sound } Sound
- * @typedef { import("./Scene").Scene } Scene
- */

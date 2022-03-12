@@ -28,7 +28,3 @@ export class Joint {
     this.renderable = null
   }
 }
-
-/**
- * @typedef { import("./JointDefinition").JointDefinition } JointDefinition
- */

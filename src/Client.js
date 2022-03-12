@@ -13,9 +13,10 @@ export class Client {
       throw new Error('Client: renderer is required')
     }
 
+    /** @type {Renderer} */
     this.renderer = renderer
 
-    /** @type {Map<Map>} */
+    /** @type {ClientCollectionType} */
     this.data = ClientCollections.generate()
   }
 
@@ -23,10 +24,3 @@ export class Client {
 
   }
 }
-
-/**
- * @typedef { import("./Pose").Pose } Pose
- * @typedef { import("./Renderer").Renderer } Renderer
- * @typedef { import("./Skeleton").Skeleton } Skeleton
- * @typedef { import("./SkeletonDefinition").SkeletonDefinition } SkeletonDefinition
- */

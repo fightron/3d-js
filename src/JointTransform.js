@@ -46,8 +46,3 @@ export class JointTransform {
     skeleton.emit(JOINT_TRANSFORM_EVENT, joint, this.rotationX, this.rotationY, this.rotationZ)
   }
 }
-
-/**
- * @typedef { import("./JointDefinition").JointDefinition } JointDefinition
- * @typedef { import("./Skeleton").Skeleton } Skeleton
- */

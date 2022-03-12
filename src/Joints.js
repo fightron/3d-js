@@ -65,8 +65,3 @@ export class Joints extends Map {
     return joint
   }
 }
-
-/**
- * @typedef { import("./Skeleton").Skeleton } Skeleton
- * @typedef { import("./JointDefinition").JointDefinition } JointDefinition
- */

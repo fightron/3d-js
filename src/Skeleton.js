@@ -54,8 +54,3 @@ export class Skeleton extends EventEmitter {
     }
   }
 }
-
-/**
- * @typedef { import("./Joint").Joint } Joint
- * @typedef { import("./SkeletonDefinition").SkeletonDefinition } SkeletonDefinition
- */

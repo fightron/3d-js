@@ -102,7 +102,3 @@ export class JointDefinition {
 function ifNull (value, def) {
   return value === undefined ? def : value
 }
-
-/**
- * @typedef { import("./Volume").Volume } Volume
- */
