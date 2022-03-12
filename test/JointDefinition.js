@@ -4,7 +4,7 @@
 
 import { expect } from '@dimensionalpocket/development'
 import { JointDefinition } from '../src/JointDefinition.js'
-import { Volume } from '../src/Volume.js'
+import { JointVolume } from '../src/JointVolume.js'
 
 describe('JointDefinition', function () {
   it('sets defaults', function () {
@@ -42,7 +42,7 @@ describe('JointDefinition', function () {
   })
 
   it('sets a volume if given', function () {
-    var volume = new Volume()
+    var volume = new JointVolume()
     var def = new JointDefinition({ name: 'test', volume })
     expect(def.volume).to.eq(volume)
   })

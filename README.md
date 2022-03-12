@@ -17,7 +17,7 @@
 * :green_circle: `Joint` - a single joint in a skeleton instance.
 * :green_circle: `JointDefinition` - the blueprint of a single joint. Used to create skeleton definitions.
 * :green_circle: `Joints` - a collection of joints.
-* :green_circle: `Volume` - holds data to render a box. Used mostly for preview purposes.
+* :green_circle: `JointVolume` - holds data to render a box. Used mostly for preview purposes.
 * :red_circle: `Pose`
 * :red_circle: `Animation`
 * :red_circle: `Scene` - an instance that holds instances of meshes, lights, sounds, cameras, skeletons, poses, and animations.
@@ -35,7 +35,7 @@ Related classes:
 * `Joint`
 * `JointDefinition`
 * `Joints`
-* `Volume`
+* `JointVolume`
 
 ## Usage
 

@@ -22,7 +22,7 @@ export class JointDefinition {
    * @param {string} [opts.axisNameX]
    * @param {string} [opts.axisNameY]
    * @param {string} [opts.axisNameZ]
-   * @param {?Volume} [opts.volume]
+   * @param {?JointVolume} [opts.volume]
    */
   constructor ({
     name,
@@ -83,11 +83,11 @@ export class JointDefinition {
     this.rotationOrder = rotationOrder
 
     /**
-     * Volume instance to visualize a
+     * JointVolume instance to visualize a
      * "body part box" from this joint.
      * If `null`, nothing will be rendered.
      *
-     * @type {?Volume}
+     * @type {?JointVolume}
      */
     this.volume = volume
   }

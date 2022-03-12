@@ -3,11 +3,11 @@
 'use strict'
 
 /**
- * A Volume contains information to render a box from a joint.
+ * A JointVolume contains information to render a box from a joint.
  * They are primarily used as a helper to visualize skeleton models.
- * Volume instances are stored inside JointDefinitions.
+ * JointVolume instances are stored inside JointDefinitions.
  */
-export class Volume {
+export class JointVolume {
   /**
    * @param {object} [opts]
    * @param {number} [opts.width]

@@ -7,6 +7,7 @@
  * @typedef { import("../JointDefinition").JointDefinition } JointDefinition
  * @typedef { import("../Joints").Joints } Joints
  * @typedef { import("../JointTransform").JointTransform } JointTransform
+ * @typedef { import("../JointVolume").JointVolume } JointVolume
  * @typedef { import("../Light").Light } Light
  * @typedef { import("../Material").Material } Material
  * @typedef { import("../Mesh").Mesh } Mesh
@@ -16,5 +17,4 @@
  * @typedef { import("../Skeleton").Skeleton } Skeleton
  * @typedef { import("../SkeletonDefinition").SkeletonDefinition } SkeletonDefinition
  * @typedef { import("../Sound").Sound } Sound
- * @typedef { import("../Volume").Volume } Volume
  */
