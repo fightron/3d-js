@@ -3,7 +3,7 @@
 'use strict'
 
 import { JointTransform } from './JointTransform.js'
-import { JOINT_TRANSFORM_EVENT } from './Skeleton.js'
+import { POSE_RESET_EVENT } from './Skeleton.js'
 
 /**
  * A Pose is a collection of JointTransform instances
@@ -59,9 +59,7 @@ export class Pose {
    */
   apply (skeleton) {
     if (this.clear) {
-      for (var joint of skeleton.joints) {
-        skeleton.emit(JOINT_TRANSFORM_EVENT, joint, 0, 0, 0)
-      }
+      skeleton.emit(POSE_RESET_EVENT, skeleton)
     }
 
     for (var transform of this.transforms) {
@@ -71,7 +69,6 @@ export class Pose {
 }
 
 /**
- *
  * @typedef { import("./Skeleton").Skeleton } Skeleton
  * @typedef { import("./SkeletonDefinition").SkeletonDefinition } SkeletonDefinition
  */

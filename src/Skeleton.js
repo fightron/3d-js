@@ -5,6 +5,9 @@
 import EventEmitter from 'eventemitter3'
 import { Joints } from './Joints.js'
 
+// Joints do not carry transforms. Skeletons emit transform events
+// that the Client/Renderer will listen to and apply transforms.
+export const POSE_RESET_EVENT = 'pose-reset'
 export const JOINT_TRANSFORM_EVENT = 'joint-transform'
 
 export class Skeleton extends EventEmitter {
