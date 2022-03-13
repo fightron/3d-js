@@ -5,18 +5,17 @@ import { expect } from '@dimensionalpocket/development'
 import { Skeleton } from '../src/Skeleton.js'
 import { SkeletonDefinition } from '../src/SkeletonDefinition.js'
 import { Joints } from '../src/Joints.js'
-import { JointDefinition } from '../src/JointDefinition.js'
 
 describe('Skeleton', function () {
   before(function () {
     this.skeletonDef = new SkeletonDefinition({
       id: 'test',
       joints: [
-        new JointDefinition({ id: 'root' }),
-        new JointDefinition({ id: 'spine', parent: 'root', position: { y: 5 } })
+        { id: 'root' },
+        { id: 'spine', parent: 'root', position: { y: 5 } }
       ]
     })
-    this.skeleton = new Skeleton(this.skeletonDef)
+    this.skeleton = new Skeleton({ id: 'test', definition: this.skeletonDef })
   })
 
   describe('constructor', function () {

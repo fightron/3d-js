@@ -20,7 +20,7 @@
  */
 
 /**
- * Some notes:
+ * Notes:
  *
  * - Animation is already used by lib.dom.d.ts
  */

@@ -5,12 +5,11 @@ import { SKELETON_DEFS } from './ClientCollections.js'
 
 export class ClientAddSkeletonDefinition {
   /**
-   *
    * @param {Client} client
-   * @param {SkeletonDefinitionOptions} data
-   * @returns
+   * @param {SkeletonDefinitionMessage} message
+   * @returns {boolean}
    */
-  static run (client, data) {
+  static run (client, message) {
     var collection = client.data.get(SKELETON_DEFS)
 
     if (!collection) {
@@ -18,7 +17,11 @@ export class ClientAddSkeletonDefinition {
       return false
     }
 
-    var skeletonDef = new SkeletonDefinition(data)
+    var skeletonDef = new SkeletonDefinition({
+      id: message.id,
+      joints: message.j
+    })
+
     collection.set(skeletonDef.id, skeletonDef)
 
     return true

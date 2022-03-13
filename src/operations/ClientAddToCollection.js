@@ -1,16 +1,18 @@
 'use strict'
 
 import { ClientAddSkeletonDefinition } from './ClientAddSkeletonDefinition.js'
+import { SKELETON_DEFS } from './ClientCollections.js'
 
 export class ClientAddToCollection {
   /**
    * @param {Client} client
    * @param {string} collectionName
-   * @param {object} data
+   * @param {SkeletonDefinitionMessage} message
+   * @returns {boolean}
    */
-  static run (client, collectionName, data) {
-    if (collectionName === 'sktD') {
-      return ClientAddSkeletonDefinition.run(client, data)
+  static run (client, collectionName, message) {
+    if (collectionName === SKELETON_DEFS) {
+      return ClientAddSkeletonDefinition.run(client, message)
     }
 
     console.error('ClientAddToCollection: unhandled collection name', collectionName)

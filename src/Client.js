@@ -20,10 +20,18 @@ export class Client {
   }
 
   feed (/* arguments */) {
-    var command = arguments[0]
+    var args
+
+    if (Array.isArray(arguments[0])) {
+      args = arguments[0]
+    } else {
+      args = arguments
+    }
+
+    var command = args[0]
 
     if (command === '+') {
-      return ClientAddToCollection.run(this, arguments[1], arguments[2])
+      return ClientAddToCollection.run(this, args[1], args[2])
     }
 
     console.error('Client#feed: unhandled command', command)

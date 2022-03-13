@@ -11,6 +11,7 @@ describe('Joint', function () {
 
   describe('constructor', function () {
     it('throws an error without a definition', function () {
+      // @ts-ignore
       expect(_ => new Joint(null)).to.throw(/definition is required/)
     })
 

@@ -11,6 +11,10 @@ export class JointTransform {
    * @param {number} [opts.rotationZ]
    */
   constructor ({ jointDefinition, rotationX = 0.0, rotationY = 0.0, rotationZ = 0.0 }) {
+    if (!jointDefinition) {
+      throw new Error('JointTransform: definition is required')
+    }
+
     /** @type {JointDefinition} */
     this.definition = jointDefinition
 

@@ -22,6 +22,7 @@ export class SkeletonDefinition {
      * @type {Array<JointDefinition>}
      */
     this.joints = []
+
     for (var jointDefOpts of joints) {
       this.joints.push(new JointDefinition(jointDefOpts))
     }
@@ -30,7 +31,7 @@ export class SkeletonDefinition {
   /**
    * Returns a joint definition by ID.
    *
-   * @param {string} id - ID of the joint
+   * @param {number|string} id - ID of the joint
    * @returns {?JointDefinition}
    */
   getJointDefinition (id) {

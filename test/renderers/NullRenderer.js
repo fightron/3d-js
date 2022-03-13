@@ -8,6 +8,9 @@ describe('renderers/NullRenderer', function () {
     this.renderer = new NullRenderer()
   })
 
+  /**
+   * @param {string} methodName
+   */
   function itBehavesLikeItReturnsTrue (methodName) {
     describe('#{methodName}', function () {
       it('returns true', function () {

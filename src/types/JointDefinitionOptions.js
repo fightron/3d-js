@@ -1,6 +1,6 @@
 /**
  * @typedef {object} JointDefinitionOptions - options for initializing a single JointDefinition.
- * @property {string} id - ID of the joint.
+ * @property {number|string} id - ID of the joint.
  * @property {?string} [parent] - ID of the parent joint.
  * @property {?Vector3} [position]
  * @property {?RotationLimits} [limits]

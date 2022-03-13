@@ -12,13 +12,30 @@ export class Skeleton extends EventEmitter {
   /**
    * Creates a skeleton instance which joints can be manipulated.
    *
-   * @param {SkeletonDefinition} definition - Skeleton definition.
+   * @param {object} options
+   * @param {number|string} options.id - Skeleton instance ID.
+   * @param {SkeletonDefinition} options.definition - Skeleton definition.
    */
-  constructor (definition) {
+  constructor ({ id, definition }) {
+    if (!id) {
+      throw new Error('Skeleton: ID is required')
+    }
+
+    if (!definition) {
+      throw new Error('Skeleton: definition is required')
+    }
+
     super()
 
     /**
-     * The definition of this skeleton, containing ID, joint data, etc.
+     * Skeleton instance ID.
+     *
+     * @type {number|string}
+     */
+    this.id = id
+
+    /**
+     * The definition of this skeleton, containing definition ID, joint data, etc.
      *
      * @type {SkeletonDefinition}
      */
@@ -26,7 +43,6 @@ export class Skeleton extends EventEmitter {
 
     /**
      * Array of joint instances (including root).
-     * These joints can be manipulated.
      *
      * @type {Joints}
      */
@@ -35,16 +51,13 @@ export class Skeleton extends EventEmitter {
     /**
      * An object to be rendered by an engine.
      *
-     * @type {object}
+     * @type {?object}
      */
     this.renderable = null
 
     this.build()
   }
 
-  /**
-   * Builds joints for specialized skeletons.
-   */
   build () {
     var jointDefinitions = this.definition.joints
     for (var definition of jointDefinitions) {

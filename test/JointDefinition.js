@@ -43,7 +43,7 @@ describe('JointDefinition', function () {
     var volume = { width: 10 }
     var def = new JointDefinition({ id: 'test', volume })
     expect(def.volume).to.be.an.instanceOf(JointVolume)
-    expect(def.volume.width).to.eq(10)
+    expect(def.volume?.width).to.eq(10)
   })
 
   context('position', function () {

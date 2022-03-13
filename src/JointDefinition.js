@@ -17,7 +17,7 @@ export class JointDefinition {
     axisNameZ = 'Side',
     volume = null
   }) {
-    /** @type {string} */
+    /** @type {number|string} */
     this.id = id
 
     /** @type {?string} */

@@ -12,6 +12,7 @@ describe('Renderer', function () {
   })
 
   after(function () {
+    // @ts-ignore
     console.error.restore()
   })
 
