@@ -1,7 +1,5 @@
 'use strict'
 
-import { ClientAddToCollection } from './ClientAddToCollection.js'
-
 export class ClientReceiveMessage {
   /**
    * @param {Client} client
@@ -12,7 +10,7 @@ export class ClientReceiveMessage {
     var command = message[0]
 
     if (command === '+') {
-      return ClientAddToCollection.run(client, message[1], message[2])
+      return client.data.add(message[1], message[2])
     }
 
     console.error('Client#feed: unhandled command', message)
