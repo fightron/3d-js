@@ -19,7 +19,7 @@ export class ClientAddSkeletonDefinition {
     }
 
     var skeletonDef = new SkeletonDefinition(data)
-    collection.set(skeletonDef.name, skeletonDef)
+    collection.set(skeletonDef.id, skeletonDef)
 
     return true
   }

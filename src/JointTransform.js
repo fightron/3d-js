@@ -30,12 +30,12 @@ export class JointTransform {
    * @param {Skeleton} skeleton
    * @returns {boolean}
    */
-  apply (skeleton) {
+  applyToSkeleton (skeleton) {
     var def = this.definition
-    var joint = skeleton.joints.get(def.name)
+    var joint = skeleton.joints.get(def.id)
 
     if (!joint) {
-      console.error('JointTransform#apply: joint not found in skeleton', skeleton.definition.name, def.name)
+      console.error('JointTransform#apply: joint not found in skeleton', skeleton.definition.id, def.id)
       return false
     }
 

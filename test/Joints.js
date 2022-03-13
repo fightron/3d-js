@@ -1,15 +1,14 @@
 'use strict'
 
 import { expect } from '@dimensionalpocket/development'
-import { Joint } from '../src/Joint.js'
-import { JointDefinition } from '../src/JointDefinition.js'
-import { Joints } from '../src/Joints.js'
-
 import { Skeleton } from '../src/Skeleton.js'
+import { Joint } from '../src/Joint.js'
+import { Joints } from '../src/Joints.js'
+import { JointDefinition } from '../src/JointDefinition.js'
 
 describe('Joints', function () {
   before(function () {
-    this.skeleton = new Skeleton({ name: 'test', joints: [] })
+    this.skeleton = new Skeleton({ id: 'test', joints: [] })
     this.joints = this.skeleton.joints
   })
 
@@ -25,9 +24,9 @@ describe('Joints', function () {
 
   describe('#create', function () {
     before(function () {
-      this.rootDef = new JointDefinition({ name: 'root' })
+      this.rootDef = new JointDefinition({ id: 'root' })
       this.root = this.joints.create(this.rootDef)
-      this.spineDef = new JointDefinition({ name: 'spine', parent: 'root' })
+      this.spineDef = new JointDefinition({ id: 'spine', parent: 'root' })
       this.spine = this.joints.create(this.spineDef)
     })
 
@@ -52,17 +51,17 @@ describe('Joints', function () {
       expect(_ => this.joints.create(null)).to.throw(/definition is required/)
     })
 
-    it('throws an error when another joint with the same name already exists', function () {
-      expect(_ => this.joints.create(this.spineDef)).to.throw(/a joint with that name already exists/)
+    it('throws an error when another joint with the same ID already exists', function () {
+      expect(_ => this.joints.create(this.spineDef)).to.throw(/a joint with that ID already exists/)
     })
 
-    it("throws an error when the parent name doesn't exist in collection", function () {
-      var invalidDef = new JointDefinition({ name: 'spine3', parent: 'invalid-joint' })
+    it("throws an error when the parent ID doesn't exist in collection", function () {
+      var invalidDef = new JointDefinition({ id: 'spine3', parent: 'invalid-joint' })
       expect(_ => this.joints.create(invalidDef)).to.throw(/parent named "invalid-joint" not found in collection/)
     })
 
     it('throws an error when collection is not empty and a definition without parent is given', function () {
-      var invalidDef = new JointDefinition({ name: 'spine3' })
+      var invalidDef = new JointDefinition({ id: 'spine3' })
       expect(_ => this.joints.create(invalidDef)).to.throw(/parent required when collection is not empty/)
     })
   })

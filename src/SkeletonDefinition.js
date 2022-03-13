@@ -8,13 +8,13 @@ export class SkeletonDefinition {
   /**
    * @param {SkeletonDefinitionOptions} options
    */
-  constructor ({ name, joints }) {
+  constructor ({ id, joints }) {
     /**
-     * Skeleton name.
+     * Skeleton ID.
      *
-     * @type {string}
+     * @type {string|number}
      */
-    this.name = name
+    this.id = id
 
     /**
      * Array of joint definitions.
@@ -28,14 +28,14 @@ export class SkeletonDefinition {
   }
 
   /**
-   * Returns a joint definition by name.
+   * Returns a joint definition by ID.
    *
-   * @param {string} name - name of the joint
+   * @param {string} id - ID of the joint
    * @returns {?JointDefinition}
    */
-  getJointDefinition (name) {
+  getJointDefinition (id) {
     for (var jointDef of this.joints) {
-      if (jointDef.name === name) return jointDef
+      if (jointDef.id === id) return jointDef
     }
 
     return null

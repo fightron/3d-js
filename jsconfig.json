@@ -6,6 +6,7 @@
   },
   "include": [
     "src/**/*.js",
+    "test/**/*.js",
     "data/**/*.js"
   ]
 }

@@ -18,7 +18,7 @@ export class Skeleton extends EventEmitter {
     super()
 
     /**
-     * The definition of this skeleton, containing name, joint data, etc.
+     * The definition of this skeleton, containing ID, joint data, etc.
      *
      * @type {SkeletonDefinition}
      */

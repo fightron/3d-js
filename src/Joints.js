@@ -31,25 +31,25 @@ export class Joints extends Map {
       throw new Error('Joints#create: definition is required')
     }
 
-    var name = definition.name
+    var id = definition.id
 
-    var existing = this.get(name)
+    var existing = this.get(id)
     if (existing) {
-      throw new Error(`Joints#create(${name}): a joint with that name already exists`)
+      throw new Error(`Joints#create(${id}): a joint with that ID already exists`)
     }
 
     var parent = null
-    var parentName = definition.parent
+    var parentId = definition.parent
 
-    if (parentName) {
-      parent = this.get(parentName)
+    if (parentId) {
+      parent = this.get(parentId)
       if (!parent) {
-        throw new Error(`Joints#create(${name}): parent named "${parentName}" not found in collection`)
+        throw new Error(`Joints#create(${id}): parent named "${parentId}" not found in collection`)
       }
     }
 
     if (this.size > 0 && !parent) {
-      throw new Error(`Joints#create(${name}): parent required when collection is not empty`)
+      throw new Error(`Joints#create(${id}): parent required when collection is not empty`)
     }
 
     var joint = new Joint(definition)
@@ -58,7 +58,7 @@ export class Joints extends Map {
       joint.parent = parent
     }
 
-    this.set(definition.name, joint)
+    this.set(definition.id, joint)
 
     return joint
   }

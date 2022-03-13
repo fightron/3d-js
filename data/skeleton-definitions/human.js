@@ -157,96 +157,96 @@ const pinkyTipVolume = { width: PINKY_WIDTH, height: PINKY_TIP_HEIGHT, depth: PI
 /** @type {Array<JointDefinitionOptions>} */
 export const HUMAN_SKELETON_JOINTS = [
   // The root joint is only used for positioning and rotation outside poses.
-  { name: '_', parent: null, volume: rootVolume },
+  { id: '_', parent: null, volume: rootVolume },
 
   // The center joint is used to rotate the entire body in a pose.
-  { name: 'Cn', parent: '_', position: { y: WAIST_HEIGHT + LEG_UPPER_HEIGHT + LEG_LOWER_HEIGHT + FOOT_HEIGHT } },
+  { id: 'Cn', parent: '_', position: { y: WAIST_HEIGHT + LEG_UPPER_HEIGHT + LEG_LOWER_HEIGHT + FOOT_HEIGHT } },
 
   // Upper and Lower bodies can be rotated independently.
-  { name: 'U', parent: 'Cn', volume: absVolume },
-  { name: 'L', parent: 'Cn', volume: waistVolume },
+  { id: 'U', parent: 'Cn', volume: absVolume },
+  { id: 'L', parent: 'Cn', volume: waistVolume },
 
   // Hips
-  { name: 'lH', parent: 'L', position: { x: LEG_OFFSET, y: -WAIST_HEIGHT }, volume: upperLegVolume },
-  { name: 'rH', parent: 'L', position: { x: -LEG_OFFSET, y: -WAIST_HEIGHT }, volume: upperLegVolume },
+  { id: 'lH', parent: 'L', position: { x: LEG_OFFSET, y: -WAIST_HEIGHT }, volume: upperLegVolume },
+  { id: 'rH', parent: 'L', position: { x: -LEG_OFFSET, y: -WAIST_HEIGHT }, volume: upperLegVolume },
 
   // Knees
-  { name: 'lKn', parent: 'lH', position: { y: -LEG_UPPER_HEIGHT }, volume: lowerLegVolume },
-  { name: 'rKn', parent: 'rH', position: { y: -LEG_UPPER_HEIGHT }, volume: lowerLegVolume },
+  { id: 'lKn', parent: 'lH', position: { y: -LEG_UPPER_HEIGHT }, volume: lowerLegVolume },
+  { id: 'rKn', parent: 'rH', position: { y: -LEG_UPPER_HEIGHT }, volume: lowerLegVolume },
 
   // Ankles
-  { name: 'lAn', parent: 'lKn', position: { y: -LEG_LOWER_HEIGHT }, volume: footVolume },
-  { name: 'rAn', parent: 'rKn', position: { y: -LEG_LOWER_HEIGHT }, volume: footVolume },
+  { id: 'lAn', parent: 'lKn', position: { y: -LEG_LOWER_HEIGHT }, volume: footVolume },
+  { id: 'rAn', parent: 'rKn', position: { y: -LEG_LOWER_HEIGHT }, volume: footVolume },
 
   // Toes
-  { name: 'lT', parent: 'lAn', position: { y: -FOOT_HEIGHT, z: FOOT_DEPTH }, volume: toesVolume },
-  { name: 'rT', parent: 'rAn', position: { y: -FOOT_HEIGHT, z: FOOT_DEPTH }, volume: toesVolume },
+  { id: 'lT', parent: 'lAn', position: { y: -FOOT_HEIGHT, z: FOOT_DEPTH }, volume: toesVolume },
+  { id: 'rT', parent: 'rAn', position: { y: -FOOT_HEIGHT, z: FOOT_DEPTH }, volume: toesVolume },
 
   // Spine (Stomach)
-  { name: 'S', parent: 'U', position: { y: ABDOMEN_HEIGHT }, volume: chestVolume },
+  { id: 'S', parent: 'U', position: { y: ABDOMEN_HEIGHT }, volume: chestVolume },
 
   // Neck (Base)
-  { name: 'N', parent: 'S', position: { y: CHEST_HEIGHT }, volume: neckVolume },
+  { id: 'N', parent: 'S', position: { y: CHEST_HEIGHT }, volume: neckVolume },
 
   // Head (Upper Neck)
-  { name: 'H', parent: 'N', position: { y: NECK_HEIGHT }, volume: headVolume },
+  { id: 'H', parent: 'N', position: { y: NECK_HEIGHT }, volume: headVolume },
 
   // Clavicles
-  { name: 'lC', parent: 'S', position: { x: SHOULDER_OFFSET_X, y: SHOULDER_OFFSET_Y }, axisNameX: 'Twist', axisNameY: 'Front/Back', axisNameZ: 'Up/Down' },
-  { name: 'rC', parent: 'S', position: { x: -SHOULDER_OFFSET_X, y: SHOULDER_OFFSET_Y }, axisNameX: 'Twist', axisNameY: 'Front/Back', axisNameZ: 'Up/Down' },
+  { id: 'lC', parent: 'S', position: { x: SHOULDER_OFFSET_X, y: SHOULDER_OFFSET_Y }, axisNameX: 'Twist', axisNameY: 'Front/Back', axisNameZ: 'Up/Down' },
+  { id: 'rC', parent: 'S', position: { x: -SHOULDER_OFFSET_X, y: SHOULDER_OFFSET_Y }, axisNameX: 'Twist', axisNameY: 'Front/Back', axisNameZ: 'Up/Down' },
 
   // Shouders
-  { name: 'lS', parent: 'lC', position: { x: ARM_UPPER_OFFSET_X, y: -ARM_UPPER_OFFSET_Y }, volume: upperArmVolume },
-  { name: 'rS', parent: 'rC', position: { x: -ARM_UPPER_OFFSET_X, y: -ARM_UPPER_OFFSET_Y }, volume: upperArmVolume },
+  { id: 'lS', parent: 'lC', position: { x: ARM_UPPER_OFFSET_X, y: -ARM_UPPER_OFFSET_Y }, volume: upperArmVolume },
+  { id: 'rS', parent: 'rC', position: { x: -ARM_UPPER_OFFSET_X, y: -ARM_UPPER_OFFSET_Y }, volume: upperArmVolume },
 
   // Elbows
-  { name: 'lE', parent: 'lS', position: { y: -ARM_UPPER_HEIGHT }, volume: lowerArmVolume },
-  { name: 'rE', parent: 'rS', position: { y: -ARM_UPPER_HEIGHT }, volume: lowerArmVolume },
+  { id: 'lE', parent: 'lS', position: { y: -ARM_UPPER_HEIGHT }, volume: lowerArmVolume },
+  { id: 'rE', parent: 'rS', position: { y: -ARM_UPPER_HEIGHT }, volume: lowerArmVolume },
 
   // Wrists
-  { name: 'lW', parent: 'lE', position: { y: -ARM_LOWER_HEIGHT }, volume: palmVolume },
-  { name: 'rW', parent: 'rE', position: { y: -ARM_LOWER_HEIGHT }, volume: palmVolume },
+  { id: 'lW', parent: 'lE', position: { y: -ARM_LOWER_HEIGHT }, volume: palmVolume },
+  { id: 'rW', parent: 'rE', position: { y: -ARM_LOWER_HEIGHT }, volume: palmVolume },
 
   // Finger Joint Positions:
   // [B]ase, [M]iddle, [T]ip
 
   /* Thumbs */
-  { name: 'lTB', parent: 'lW', position: { x: THUMB_OFFSET_X }, volume: thumbBaseVolume },
-  { name: 'lTM', parent: 'lTB', position: { x: THUMB_WIDTH / 2, y: -THUMB_BASE_HEIGHT }, volume: thumbMidVolume },
-  { name: 'lTT', parent: 'lTM', position: { y: -THUMB_MID_HEIGHT }, volume: thumbTipVolume },
-  { name: 'rTB', parent: 'rW', position: { x: -THUMB_OFFSET_X }, volume: thumbBaseVolume },
-  { name: 'rTM', parent: 'rTB', position: { x: -THUMB_WIDTH / 2, y: -THUMB_BASE_HEIGHT }, volume: thumbMidVolume },
-  { name: 'rTT', parent: 'rTM', position: { y: -THUMB_MID_HEIGHT }, volume: thumbTipVolume },
+  { id: 'lTB', parent: 'lW', position: { x: THUMB_OFFSET_X }, volume: thumbBaseVolume },
+  { id: 'lTM', parent: 'lTB', position: { x: THUMB_WIDTH / 2, y: -THUMB_BASE_HEIGHT }, volume: thumbMidVolume },
+  { id: 'lTT', parent: 'lTM', position: { y: -THUMB_MID_HEIGHT }, volume: thumbTipVolume },
+  { id: 'rTB', parent: 'rW', position: { x: -THUMB_OFFSET_X }, volume: thumbBaseVolume },
+  { id: 'rTM', parent: 'rTB', position: { x: -THUMB_WIDTH / 2, y: -THUMB_BASE_HEIGHT }, volume: thumbMidVolume },
+  { id: 'rTT', parent: 'rTM', position: { y: -THUMB_MID_HEIGHT }, volume: thumbTipVolume },
 
   /* Index */
-  { name: 'lIB', parent: 'lW', position: { x: INDEX_OFFSET_X, y: -PALM_HEIGHT }, volume: indexBaseVolume },
-  { name: 'lIM', parent: 'lIB', position: { y: -INDEX_BASE_HEIGHT }, volume: indexMidVolume },
-  { name: 'lIT', parent: 'lIM', position: { y: -INDEX_MID_HEIGHT }, volume: indexTipVolume },
-  { name: 'rIB', parent: 'rW', position: { x: -INDEX_OFFSET_X, y: -PALM_HEIGHT }, volume: indexBaseVolume },
-  { name: 'rIM', parent: 'rIB', position: { y: -INDEX_BASE_HEIGHT }, volume: indexMidVolume },
-  { name: 'rIT', parent: 'rIM', position: { y: -INDEX_MID_HEIGHT }, volume: indexTipVolume },
+  { id: 'lIB', parent: 'lW', position: { x: INDEX_OFFSET_X, y: -PALM_HEIGHT }, volume: indexBaseVolume },
+  { id: 'lIM', parent: 'lIB', position: { y: -INDEX_BASE_HEIGHT }, volume: indexMidVolume },
+  { id: 'lIT', parent: 'lIM', position: { y: -INDEX_MID_HEIGHT }, volume: indexTipVolume },
+  { id: 'rIB', parent: 'rW', position: { x: -INDEX_OFFSET_X, y: -PALM_HEIGHT }, volume: indexBaseVolume },
+  { id: 'rIM', parent: 'rIB', position: { y: -INDEX_BASE_HEIGHT }, volume: indexMidVolume },
+  { id: 'rIT', parent: 'rIM', position: { y: -INDEX_MID_HEIGHT }, volume: indexTipVolume },
 
   /* Middle */
-  { name: 'lMB', parent: 'lW', position: { x: MIDDLE_OFFSET_X, y: -PALM_HEIGHT }, volume: middleBaseVolume },
-  { name: 'lMM', parent: 'lMB', position: { y: -MIDDLE_BASE_HEIGHT }, volume: middleMidVolume },
-  { name: 'lMT', parent: 'lMM', position: { y: -MIDDLE_MID_HEIGHT }, volume: middleTipVolume },
-  { name: 'rMB', parent: 'rW', position: { x: -MIDDLE_OFFSET_X, y: -PALM_HEIGHT }, volume: middleBaseVolume },
-  { name: 'rMM', parent: 'rMB', position: { y: -MIDDLE_BASE_HEIGHT }, volume: middleMidVolume },
-  { name: 'rMT', parent: 'rMM', position: { y: -MIDDLE_MID_HEIGHT }, volume: middleTipVolume },
+  { id: 'lMB', parent: 'lW', position: { x: MIDDLE_OFFSET_X, y: -PALM_HEIGHT }, volume: middleBaseVolume },
+  { id: 'lMM', parent: 'lMB', position: { y: -MIDDLE_BASE_HEIGHT }, volume: middleMidVolume },
+  { id: 'lMT', parent: 'lMM', position: { y: -MIDDLE_MID_HEIGHT }, volume: middleTipVolume },
+  { id: 'rMB', parent: 'rW', position: { x: -MIDDLE_OFFSET_X, y: -PALM_HEIGHT }, volume: middleBaseVolume },
+  { id: 'rMM', parent: 'rMB', position: { y: -MIDDLE_BASE_HEIGHT }, volume: middleMidVolume },
+  { id: 'rMT', parent: 'rMM', position: { y: -MIDDLE_MID_HEIGHT }, volume: middleTipVolume },
 
   /* Ring */
-  { name: 'lRB', parent: 'lW', position: { x: RING_OFFSET_X, y: -PALM_HEIGHT }, volume: ringBaseVolume },
-  { name: 'lRM', parent: 'lRB', position: { y: -RING_BASE_HEIGHT }, volume: ringMidVolume },
-  { name: 'lRT', parent: 'lRM', position: { y: -RING_MID_HEIGHT }, volume: ringTipVolume },
-  { name: 'rRB', parent: 'rW', position: { x: -RING_OFFSET_X, y: -PALM_HEIGHT }, volume: ringBaseVolume },
-  { name: 'rRM', parent: 'rRB', position: { y: -RING_BASE_HEIGHT }, volume: ringMidVolume },
-  { name: 'rRT', parent: 'rRM', position: { y: -RING_MID_HEIGHT }, volume: ringTipVolume },
+  { id: 'lRB', parent: 'lW', position: { x: RING_OFFSET_X, y: -PALM_HEIGHT }, volume: ringBaseVolume },
+  { id: 'lRM', parent: 'lRB', position: { y: -RING_BASE_HEIGHT }, volume: ringMidVolume },
+  { id: 'lRT', parent: 'lRM', position: { y: -RING_MID_HEIGHT }, volume: ringTipVolume },
+  { id: 'rRB', parent: 'rW', position: { x: -RING_OFFSET_X, y: -PALM_HEIGHT }, volume: ringBaseVolume },
+  { id: 'rRM', parent: 'rRB', position: { y: -RING_BASE_HEIGHT }, volume: ringMidVolume },
+  { id: 'rRT', parent: 'rRM', position: { y: -RING_MID_HEIGHT }, volume: ringTipVolume },
 
   /* Pinky */
-  { name: 'lPB', parent: 'lW', position: { x: PINKY_OFFSET_X, y: -PALM_HEIGHT }, volume: pinkyBaseVolume },
-  { name: 'lPM', parent: 'lPB', position: { y: -PINKY_BASE_HEIGHT }, volume: pinkyMidVolume },
-  { name: 'lPT', parent: 'lPM', position: { y: -PINKY_MID_HEIGHT }, volume: pinkyTipVolume },
-  { name: 'rPB', parent: 'rW', position: { x: -PINKY_OFFSET_X, y: -PALM_HEIGHT }, volume: pinkyBaseVolume },
-  { name: 'rPM', parent: 'rPB', position: { y: -PINKY_BASE_HEIGHT }, volume: pinkyMidVolume },
-  { name: 'rPT', parent: 'rPM', position: { y: -PINKY_MID_HEIGHT }, volume: pinkyTipVolume }
+  { id: 'lPB', parent: 'lW', position: { x: PINKY_OFFSET_X, y: -PALM_HEIGHT }, volume: pinkyBaseVolume },
+  { id: 'lPM', parent: 'lPB', position: { y: -PINKY_BASE_HEIGHT }, volume: pinkyMidVolume },
+  { id: 'lPT', parent: 'lPM', position: { y: -PINKY_MID_HEIGHT }, volume: pinkyTipVolume },
+  { id: 'rPB', parent: 'rW', position: { x: -PINKY_OFFSET_X, y: -PALM_HEIGHT }, volume: pinkyBaseVolume },
+  { id: 'rPM', parent: 'rPB', position: { y: -PINKY_BASE_HEIGHT }, volume: pinkyMidVolume },
+  { id: 'rPT', parent: 'rPM', position: { y: -PINKY_MID_HEIGHT }, volume: pinkyTipVolume }
 ]

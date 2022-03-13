@@ -43,10 +43,10 @@ First create a `SkeletonDefinition`. Those instances are long-lived and act as b
 
 ```javascript
 var skeletonDefinition = new SkeletonDefinition({
-  name: 'test-skeleton',
+  id: 'test-skeleton',
   joints: [
-    new JointDefinition({name: 'root'}),
-    new JointDefinition({name: 'spine', parent: 'root'})
+    new JointDefinition({id: 'root'}),
+    new JointDefinition({id: 'spine', parent: 'root'})
   ]
 })
 ```
@@ -65,7 +65,7 @@ To manipulate its joints, you need to use an external [renderer](#renderer).
 var skeleton = new Skeleton(humanSkeletonDefinition)
 
 var pose = new Pose({
-  name: 'rotated-spine',
+  id: 'rotated-spine',
   skeletonDefinition: humanSkeletonDefinition,
   transforms: [
     { joint: 'spine', rotationY: 0.3 }
@@ -73,7 +73,7 @@ var pose = new Pose({
   clear: true
 })
 
-pose.apply(skeleton)
+pose.applyToSkeleton(skeleton)
 ```
 
 # Renderer

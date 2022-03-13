@@ -11,7 +11,7 @@ describe('Client#feed(T) [Posing]', function () {
     this.renderer = new NullRenderer()
     this.client = new Client(this.renderer)
 
-    this.client.feed('+', SKELETON_DEFS, { name: 'human', joints: HUMAN_SKELETON_JOINTS })
+    this.client.feed('+', SKELETON_DEFS, { id: 'human', joints: HUMAN_SKELETON_JOINTS })
     this.client.feed('+', SKELETONS, { id: 'test-skeleton', def: 'human' })
     this.client.feed('+', POSES, {
       id: 'testPose',

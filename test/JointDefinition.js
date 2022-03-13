@@ -6,7 +6,7 @@ import { JointVolume } from '../src/JointVolume.js'
 
 describe('JointDefinition', function () {
   it('sets defaults', function () {
-    var def = new JointDefinition({ name: 'test' })
+    var def = new JointDefinition({ id: 'test' })
     expect(def.parent).to.eq(null)
     expect(def.positionX).to.eq(0.0)
     expect(def.positionY).to.eq(0.0)
@@ -24,52 +24,52 @@ describe('JointDefinition', function () {
     expect(def.volume).to.eq(null)
   })
 
-  it('sets name', function () {
-    var def = new JointDefinition({ name: 'test' })
-    expect(def.name).to.eq('test')
+  it('sets ID', function () {
+    var def = new JointDefinition({ id: 'test' })
+    expect(def.id).to.eq('test')
   })
 
   it('sets parent', function () {
-    var def = new JointDefinition({ name: 'test', parent: 'parent' })
+    var def = new JointDefinition({ id: 'test', parent: 'parent' })
     expect(def.parent).to.eq('parent')
   })
 
   it('sets rotationOrder', function () {
-    var def = new JointDefinition({ name: 'test', rotationOrder: 'XYZ' })
+    var def = new JointDefinition({ id: 'test', rotationOrder: 'XYZ' })
     expect(def.rotationOrder).to.eq('XYZ')
   })
 
   it('sets a volume if given', function () {
     var volume = { width: 10 }
-    var def = new JointDefinition({ name: 'test', volume })
+    var def = new JointDefinition({ id: 'test', volume })
     expect(def.volume).to.be.an.instanceOf(JointVolume)
     expect(def.volume.width).to.eq(10)
   })
 
   context('position', function () {
     it('sets zero as defaults', function () {
-      var def = new JointDefinition({ name: 'test' })
+      var def = new JointDefinition({ id: 'test' })
       expect(def.positionX).to.eq(0)
       expect(def.positionY).to.eq(0)
       expect(def.positionZ).to.eq(0)
     })
 
     it('sets positionX', function () {
-      var def = new JointDefinition({ name: 'test', position: { x: 1 } })
+      var def = new JointDefinition({ id: 'test', position: { x: 1 } })
       expect(def.positionX).to.eq(1)
       expect(def.positionY).to.eq(0)
       expect(def.positionZ).to.eq(0)
     })
 
     it('sets positionY', function () {
-      var def = new JointDefinition({ name: 'test', position: { y: 2 } })
+      var def = new JointDefinition({ id: 'test', position: { y: 2 } })
       expect(def.positionY).to.eq(2)
       expect(def.positionX).to.eq(0)
       expect(def.positionZ).to.eq(0)
     })
 
     it('sets positionZ', function () {
-      var def = new JointDefinition({ name: 'test', position: { z: 3 } })
+      var def = new JointDefinition({ id: 'test', position: { z: 3 } })
       expect(def.positionZ).to.eq(3)
       expect(def.positionX).to.eq(0)
       expect(def.positionY).to.eq(0)
@@ -78,7 +78,7 @@ describe('JointDefinition', function () {
 
   context('rotation limits', function () {
     it('sets Infinity as defaults', function () {
-      var def = new JointDefinition({ name: 'test' })
+      var def = new JointDefinition({ id: 'test' })
       expect(def.minRotationX).to.eq(-Infinity)
       expect(def.minRotationY).to.eq(-Infinity)
       expect(def.minRotationZ).to.eq(-Infinity)
@@ -88,7 +88,7 @@ describe('JointDefinition', function () {
     })
 
     it('sets minRotationX', function () {
-      var def = new JointDefinition({ name: 'test', limits: { xMin: -1 } })
+      var def = new JointDefinition({ id: 'test', limits: { xMin: -1 } })
       expect(def.minRotationX).to.eq(-1)
       expect(def.minRotationY).to.eq(-Infinity)
       expect(def.minRotationZ).to.eq(-Infinity)
@@ -98,7 +98,7 @@ describe('JointDefinition', function () {
     })
 
     it('sets minRotationY', function () {
-      var def = new JointDefinition({ name: 'test', limits: { yMin: -2 } })
+      var def = new JointDefinition({ id: 'test', limits: { yMin: -2 } })
       expect(def.minRotationY).to.eq(-2)
       expect(def.minRotationX).to.eq(-Infinity)
       expect(def.minRotationZ).to.eq(-Infinity)
@@ -108,7 +108,7 @@ describe('JointDefinition', function () {
     })
 
     it('sets minRotationZ', function () {
-      var def = new JointDefinition({ name: 'test', limits: { zMin: -3 } })
+      var def = new JointDefinition({ id: 'test', limits: { zMin: -3 } })
       expect(def.minRotationZ).to.eq(-3)
       expect(def.minRotationX).to.eq(-Infinity)
       expect(def.minRotationY).to.eq(-Infinity)
@@ -118,7 +118,7 @@ describe('JointDefinition', function () {
     })
 
     it('sets maxRotationX', function () {
-      var def = new JointDefinition({ name: 'test', limits: { xMax: 1 } })
+      var def = new JointDefinition({ id: 'test', limits: { xMax: 1 } })
       expect(def.maxRotationX).to.eq(1)
       expect(def.minRotationX).to.eq(-Infinity)
       expect(def.minRotationY).to.eq(-Infinity)
@@ -128,7 +128,7 @@ describe('JointDefinition', function () {
     })
 
     it('sets maxRotationY', function () {
-      var def = new JointDefinition({ name: 'test', limits: { yMax: 2 } })
+      var def = new JointDefinition({ id: 'test', limits: { yMax: 2 } })
       expect(def.maxRotationY).to.eq(2)
       expect(def.minRotationX).to.eq(-Infinity)
       expect(def.minRotationY).to.eq(-Infinity)
@@ -138,7 +138,7 @@ describe('JointDefinition', function () {
     })
 
     it('sets maxRotationZ', function () {
-      var def = new JointDefinition({ name: 'test', limits: { zMax: 3 } })
+      var def = new JointDefinition({ id: 'test', limits: { zMax: 3 } })
       expect(def.maxRotationZ).to.eq(3)
       expect(def.minRotationX).to.eq(-Infinity)
       expect(def.minRotationY).to.eq(-Infinity)

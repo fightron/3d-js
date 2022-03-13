@@ -7,7 +7,7 @@ export class JointDefinition {
    * @param {JointDefinitionOptions} opts
    */
   constructor ({
-    name,
+    id,
     parent = null,
     position = { x: 0.0, y: 0.0, z: 0.0 },
     limits = { xMin: -Infinity, xMax: Infinity, yMin: -Infinity, yMax: Infinity, zMin: -Infinity, zMax: Infinity },
@@ -18,7 +18,7 @@ export class JointDefinition {
     volume = null
   }) {
     /** @type {string} */
-    this.name = name
+    this.id = id
 
     /** @type {?string} */
     this.parent = parent

@@ -10,10 +10,10 @@ import { JointDefinition } from '../src/JointDefinition.js'
 describe('Skeleton', function () {
   before(function () {
     this.skeletonDef = new SkeletonDefinition({
-      name: 'test',
+      id: 'test',
       joints: [
-        new JointDefinition({ name: 'root' }),
-        new JointDefinition({ name: 'spine', parent: 'root', position: { y: 5 } })
+        new JointDefinition({ id: 'root' }),
+        new JointDefinition({ id: 'spine', parent: 'root', position: { y: 5 } })
       ]
     })
     this.skeleton = new Skeleton(this.skeletonDef)
