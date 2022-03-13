@@ -6,10 +6,10 @@ import { SKELETON_DEFS } from './ClientCollections.js'
 export class ClientAddSkeletonDefinition {
   /**
    * @param {Client} client
-   * @param {SkeletonDefinitionData} message
+   * @param {SkeletonDefinitionData} data
    * @returns {boolean}
    */
-  static run (client, message) {
+  static run (client, data) {
     var collection = client.data.get(SKELETON_DEFS)
 
     if (!collection) {
@@ -17,7 +17,7 @@ export class ClientAddSkeletonDefinition {
       return false
     }
 
-    var skeletonDef = new SkeletonDefinition(message)
+    var skeletonDef = new SkeletonDefinition(data)
 
     collection.set(skeletonDef.id, skeletonDef)
 

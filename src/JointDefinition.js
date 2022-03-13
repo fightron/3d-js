@@ -8,7 +8,7 @@ export class JointDefinition {
    * @param {JointDefinitionData} opts
    */
   constructor (opts) {
-    /** @type {number|string} */
+    /** @type {id} */
     this.id = opts.id
 
     /** @type {string|undefined} */

@@ -13,7 +13,7 @@ export class Skeleton extends EventEmitter {
    * Creates a skeleton instance which joints can be manipulated.
    *
    * @param {object} options
-   * @param {number|string} options.id - Skeleton instance ID.
+   * @param {id} options.id - Skeleton instance ID.
    * @param {SkeletonDefinition} options.definition - Skeleton definition.
    */
   constructor ({ id, definition }) {
@@ -30,7 +30,7 @@ export class Skeleton extends EventEmitter {
     /**
      * Skeleton instance ID.
      *
-     * @type {number|string}
+     * @type {id}
      */
     this.id = id
 

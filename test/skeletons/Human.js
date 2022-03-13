@@ -14,6 +14,8 @@ describe('skeletons/Human', function () {
 
     var human = client.data.get(SKELETONS)?.get('test')
 
+    expect(human).to.exist
+
     // @ts-ignore
     expect(human.joints.size).to.eq(HUMAN_SKELETON_JOINTS.length)
   })

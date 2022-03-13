@@ -1,4 +1,6 @@
 /**
+ * @typedef {number|string} id - The ID of a resource
+ *
  * @typedef { import("../Animation").Animation } Animation3D
  * @typedef { import("../Camera").Camera } Camera
  * @typedef { import("../Client").Client } Client

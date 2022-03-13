@@ -7,7 +7,7 @@ export class ClientAddToCollection {
   /**
    * @param {Client} client
    * @param {string} collectionName
-   * @param {SkeletonDefinitionData} message
+   * @param {any} message
    * @returns {boolean}
    */
   static run (client, collectionName, message) {

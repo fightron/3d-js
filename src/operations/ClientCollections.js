@@ -20,34 +20,34 @@ export class ClientCollections {
   static generate () {
     var data = new Map()
 
-    /** @type {Map<number|string,Animation3D>} */
+    /** @type {Map<id,Animation3D>} */
     var animations = new Map()
 
-    /** @type {Map<number|string,Camera>} */
+    /** @type {Map<id,Camera>} */
     var cameras = new Map()
 
-    /** @type {Map<number|string,Geometry>} */
+    /** @type {Map<id,Geometry>} */
     var geometries = new Map()
 
-    /** @type {Map<number|string,Light>} */
+    /** @type {Map<id,Light>} */
     var lights = new Map()
 
-    /** @type {Map<number|string,Material>} */
+    /** @type {Map<id,Material>} */
     var materials = new Map()
 
-    /** @type {Map<number|string,Mesh>} */
+    /** @type {Map<id,Mesh>} */
     var meshes = new Map()
 
-    /** @type {Map<number|string,Pose>} */
+    /** @type {Map<id,Pose>} */
     var poses = new Map()
 
-    /** @type {Map<number|string,Skeleton>} */
+    /** @type {Map<id,Skeleton>} */
     var skeletons = new Map()
 
-    /** @type {Map<number|string,SkeletonDefinition>} */
+    /** @type {Map<id,SkeletonDefinition>} */
     var skeletonDefs = new Map()
 
-    /** @type {Map<number|string,Sound>} */
+    /** @type {Map<id,Sound>} */
     var sounds = new Map()
 
     data.set(ANIMATIONS, animations)

@@ -29,7 +29,7 @@ export class SkeletonDefinition {
   /**
    * Returns a joint definition by ID.
    *
-   * @param {number|string} id - ID of the joint
+   * @param {id} id - ID of the joint
    * @returns {?JointDefinition}
    */
   getJointDefinition (id) {
