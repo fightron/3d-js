@@ -45,8 +45,8 @@ First create a `SkeletonDefinition`. Those instances are long-lived and act as b
 var skeletonDefinition = new SkeletonDefinition({
   id: 'test-skeleton',
   joints: [
-    {id: 'root'},
-    {id: 'spine', parent: 'root'}
+    { id: 'root' },
+    { id: 'spine', parent: 'root' }
   ]
 })
 ```
@@ -54,7 +54,10 @@ var skeletonDefinition = new SkeletonDefinition({
 Once a definition is created, you can use it to create multiple `Skeleton` instances:
 
 ```javascript
-var skeleton = new Skeleton(skeletonDefinition)
+var skeleton = new Skeleton({
+  id: 'some-skeleton',
+  definition: skeletonDefinition
+})
 ```
 
 To manipulate its joints, you need to use an external [renderer](#renderer).
@@ -62,13 +65,13 @@ To manipulate its joints, you need to use an external [renderer](#renderer).
 # Pose
 
 ```js
-var skeleton = new Skeleton(humanSkeletonDefinition)
+var skeleton = new Skeleton(...)
 
 var pose = new Pose({
   id: 'rotated-spine',
-  skeletonDefinition: humanSkeletonDefinition,
+  skeletonDefinition: skeleton.definition,
   transforms: [
-    { joint: 'spine', rotationY: 0.3 }
+    { joint: 'spine', rotation: { y: 0.3 } }
   ],
   clear: true
 })
