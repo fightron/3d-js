@@ -4,6 +4,7 @@
  * @typedef { import("../Animation").Animation } Animation3D
  * @typedef { import("../Camera").Camera } Camera
  * @typedef { import("../Client").Client } Client
+ * @typedef { import("../ClientData").ClientData } ClientData
  * @typedef { import("../Geometry").Geometry } Geometry
  * @typedef { import("../Joint").Joint } Joint
  * @typedef { import("../JointDefinition").JointDefinition } JointDefinition

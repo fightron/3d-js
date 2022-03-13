@@ -3,20 +3,18 @@
 import { expect } from '@dimensionalpocket/development'
 import { NullRenderer } from '../../src/renderers/NullRenderer.js'
 import { Client } from '../../src/Client.js'
-import { SKELETONS, SKELETON_DEFS } from '../../src/operations/ClientCollections.js'
 import { HUMAN_SKELETON_JOINTS } from '../../data/skeleton-definitions/human.js'
+import { ClientAddToCollection } from '../../src/operations/ClientAddToCollection.js'
 
 describe('skeletons/Human', function () {
   it('builds successfully', function () {
     var client = new Client(new NullRenderer())
-    client.feed('+', SKELETON_DEFS, { id: 'human', j: HUMAN_SKELETON_JOINTS })
-    client.feed('+', SKELETONS, { id: 'test', def: 'human' })
+    ClientAddToCollection.run(client, 'skeletonDefinitions', { id: 'human', joints: HUMAN_SKELETON_JOINTS })
+    ClientAddToCollection.run(client, 'skeletons', { id: 'test', definition: 'human' })
 
-    var human = client.data.get(SKELETONS)?.get('test')
+    var human = client.data.skeletons.get('test')
 
     expect(human).to.exist
-
-    // @ts-ignore
-    expect(human.joints.size).to.eq(HUMAN_SKELETON_JOINTS.length)
+    expect(human?.joints.size).to.eq(HUMAN_SKELETON_JOINTS.length)
   })
 })

@@ -1,7 +1,7 @@
 'use strict'
 
+import { ClientAddSkeleton } from './ClientAddSkeleton.js'
 import { ClientAddSkeletonDefinition } from './ClientAddSkeletonDefinition.js'
-import { SKELETON_DEFS } from './ClientCollections.js'
 
 export class ClientAddToCollection {
   /**
@@ -11,7 +11,11 @@ export class ClientAddToCollection {
    * @returns {boolean}
    */
   static run (client, collectionName, message) {
-    if (collectionName === SKELETON_DEFS) {
+    if (collectionName === 'skeletons') {
+      return ClientAddSkeleton.run(client, message)
+    }
+
+    if (collectionName === 'skeletonDefinitions') {
       return ClientAddSkeletonDefinition.run(client, message)
     }
 

@@ -5,19 +5,19 @@ import fs from 'fs'
 import { expect } from '@dimensionalpocket/development'
 import { NullRenderer } from '../../src/renderers/NullRenderer.js'
 import { Client } from '../../src/Client.js'
-import { POSES, SKELETONS, SKELETON_DEFS } from '../../src/operations/ClientCollections.js'
 
 // Generate human.json in data folder
 import { HUMAN_SKELETON_JOINTS } from '../../data/skeleton-definitions/human.js'
+import { ClientAddToCollection } from '../../src/operations/ClientAddToCollection.js'
 
 describe('Client#feed(T) [Posing]', function () {
   before(function () {
     this.renderer = new NullRenderer()
     this.client = new Client(this.renderer)
 
-    this.client.feed('+', SKELETON_DEFS, { id: 'human', joints: HUMAN_SKELETON_JOINTS })
-    this.client.feed('+', SKELETONS, { id: 'test-skeleton', def: 'human' })
-    this.client.feed('+', POSES, {
+    ClientAddToCollection.run(this.client, 'skeletonDefinitions', { id: 'human', joints: HUMAN_SKELETON_JOINTS })
+    ClientAddToCollection.run(this.client, 'skeletons', { id: 'test-skeleton', def: 'human' })
+    ClientAddToCollection.run(this.client, 'poses', {
       id: 'testPose',
       skeleton: 'human',
       transforms: [
@@ -26,7 +26,7 @@ describe('Client#feed(T) [Posing]', function () {
     })
   })
 
-  it('poses the skeleton', function () {
+  it.skip('poses the skeleton', function () {
     // TODO
     expect(true).to.eq(true)
   })

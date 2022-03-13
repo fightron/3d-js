@@ -1,6 +1,6 @@
 'use strict'
 
-import { ClientCollections } from './operations/ClientCollections.js'
+import { ClientData } from './ClientData.js'
 import { ClientReceiveMessage } from './operations/ClientReceiveMessage.js'
 
 export class Client {
@@ -15,8 +15,8 @@ export class Client {
     /** @type {Renderer} */
     this.renderer = renderer
 
-    /** @type {ClientCollectionType} */
-    this.data = ClientCollections.generate()
+    /** @type {ClientData} */
+    this.data = new ClientData(this)
   }
 
   /**
