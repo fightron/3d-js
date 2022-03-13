@@ -11,9 +11,10 @@
 
 // import fs from 'fs'
 
-if (process.env.NODE_ENV !== 'test') {
-  throw new Error('human.js included outside tests')
-}
+// Uncomment the block below when the default workflow sets NODE_ENV=test.
+// if (process.env.NODE_ENV !== 'test') {
+//   throw new Error('human.js included outside tests')
+// }
 
 // DIMENSIONS
 
