@@ -1,59 +1,38 @@
 'use strict'
 
 import { JointVolume } from './JointVolume.js'
+import { Vector3 } from './Vector3.js'
 
 export class JointDefinition {
   /**
-   * @param {JointDefinitionOptions} opts
+   * @param {JointDefinitionData} opts
    */
-  constructor ({
-    id,
-    parent = null,
-    position = { x: 0.0, y: 0.0, z: 0.0 },
-    limits = { xMin: -Infinity, xMax: Infinity, yMin: -Infinity, yMax: Infinity, zMin: -Infinity, zMax: Infinity },
-    rotationOrder = 'YXZ',
-    axisNameX = 'Front/Back',
-    axisNameY = 'Twist',
-    axisNameZ = 'Side',
-    volume = null
-  }) {
+  constructor (opts) {
     /** @type {number|string} */
-    this.id = id
+    this.id = opts.id
 
-    /** @type {?string} */
-    this.parent = parent
+    /** @type {string|undefined} */
+    this.parent = opts.parent
 
-    /** @type {number} */
-    this.positionX = position?.x || 0.0
+    /** @type {Vector3} */
+    this.position = new Vector3(opts.position)
 
-    /** @type {number} */
-    this.positionY = position?.y || 0.0
+    var limits = opts.limits
 
-    /** @type {number} */
-    this.positionZ = position?.z || 0.0
-
-    /** @type {number} */
-    this.minRotationX = ifNull(limits?.xMin, -Infinity)
-
-    /** @type {number} */
-    this.minRotationY = ifNull(limits?.yMin, -Infinity)
-
-    /** @type {number} */
-    this.minRotationZ = ifNull(limits?.zMin, -Infinity)
-
-    /** @type {number} */
-    this.maxRotationX = ifNull(limits?.xMax, Infinity)
-
-    /** @type {number} */
-    this.maxRotationY = ifNull(limits?.yMax, Infinity)
-
-    /** @type {number} */
-    this.maxRotationZ = ifNull(limits?.zMax, Infinity)
+    /** @type {RotationLimitData} */
+    this.limits = {
+      xMin: limits?.xMin || -Infinity,
+      xMax: limits?.xMax || Infinity,
+      yMin: limits?.yMin || -Infinity,
+      yMax: limits?.yMax || Infinity,
+      zMin: limits?.zMin || -Infinity,
+      zMax: limits?.zMax || Infinity
+    }
 
     // Axis names are shown in editors.
-    this.axisNameX = axisNameX
-    this.axisNameY = axisNameY
-    this.axisNameZ = axisNameZ
+    this.axisNameX = opts.axisNameX || 'Front/Back'
+    this.axisNameY = opts.axisNameY || 'Twist'
+    this.axisNameZ = opts.axisNameZ || 'Side'
 
     /**
      * Rotation order for Euler angles.
@@ -62,29 +41,15 @@ export class JointDefinition {
      *
      * @type {string}
      */
-    this.rotationOrder = rotationOrder || 'YXZ'
+    this.rotationOrder = opts.rotationOrder || 'YXZ'
 
     /**
      * JointVolume instance to visualize a
      * "body part box" from this joint.
-     * If `null`, nothing will be rendered.
+     * If undefined, nothing will be rendered.
      *
-     * @type {?JointVolume}
+     * @type {JointVolume|undefined}
      */
-    this.volume = null
-
-    if (volume) {
-      this.volume = new JointVolume(volume)
-    }
+    this.volume = opts.volume && new JointVolume(opts.volume)
   }
-}
-
-/**
- *
- * @param {any} value
- * @param {any} def
- * @returns
- */
-function ifNull (value, def) {
-  return value === undefined ? def : value
 }

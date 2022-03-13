@@ -34,7 +34,7 @@ describe('Skeleton', function () {
       })
 
       it('sets hierarchy', function () {
-        expect(this.skeleton.joints.get('root').parent).to.eq(null)
+        expect(this.skeleton.joints.get('root').parent).to.eq(undefined)
         expect(this.skeleton.joints.get('spine').parent).to.eq(this.skeleton.joints.get('root'))
       })
     })

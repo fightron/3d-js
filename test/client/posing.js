@@ -1,10 +1,14 @@
 'use strict'
 
+import fs from 'fs'
+
 import { expect } from '@dimensionalpocket/development'
 import { NullRenderer } from '../../src/renderers/NullRenderer.js'
 import { Client } from '../../src/Client.js'
-import { HUMAN_SKELETON_JOINTS } from '../../data/skeleton-definitions/human.js'
 import { POSES, SKELETONS, SKELETON_DEFS } from '../../src/operations/ClientCollections.js'
+
+// Generate human.json in data folder
+import { HUMAN_SKELETON_JOINTS } from '../../data/skeleton-definitions/human.js'
 
 describe('Client#feed(T) [Posing]', function () {
   before(function () {

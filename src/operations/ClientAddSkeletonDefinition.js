@@ -6,7 +6,7 @@ import { SKELETON_DEFS } from './ClientCollections.js'
 export class ClientAddSkeletonDefinition {
   /**
    * @param {Client} client
-   * @param {SkeletonDefinitionMessage} message
+   * @param {SkeletonDefinitionData} message
    * @returns {boolean}
    */
   static run (client, message) {
@@ -17,10 +17,7 @@ export class ClientAddSkeletonDefinition {
       return false
     }
 
-    var skeletonDef = new SkeletonDefinition({
-      id: message.id,
-      joints: message.j
-    })
+    var skeletonDef = new SkeletonDefinition(message)
 
     collection.set(skeletonDef.id, skeletonDef)
 

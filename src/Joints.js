@@ -3,7 +3,7 @@
 import { Joint } from './Joint.js'
 
 /**
- * A collection that associates joints to a skeleton.
+ * A collection that links joints to a skeleton.
  */
 export class Joints extends Map {
   /**

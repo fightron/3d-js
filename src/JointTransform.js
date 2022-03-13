@@ -1,16 +1,15 @@
 'use strict'
 
 import { JOINT_TRANSFORM_EVENT } from './Skeleton.js'
+import { Vector3 } from './Vector3.js'
 
 export class JointTransform {
   /**
    * @param {object} opts
    * @param {JointDefinition} opts.jointDefinition
-   * @param {number} [opts.rotationX]
-   * @param {number} [opts.rotationY]
-   * @param {number} [opts.rotationZ]
+   * @param {Vector3Data} [opts.rotation]
    */
-  constructor ({ jointDefinition, rotationX = 0.0, rotationY = 0.0, rotationZ = 0.0 }) {
+  constructor ({ jointDefinition, rotation = undefined }) {
     if (!jointDefinition) {
       throw new Error('JointTransform: definition is required')
     }
@@ -18,14 +17,8 @@ export class JointTransform {
     /** @type {JointDefinition} */
     this.definition = jointDefinition
 
-    /** @type {number} */
-    this.rotationX = rotationX
-
-    /** @type {number} */
-    this.rotationY = rotationY
-
-    /** @type {number} */
-    this.rotationZ = rotationZ
+    /** @type {Vector3} */
+    this.rotation = new Vector3(rotation)
   }
 
   /**
@@ -45,7 +38,7 @@ export class JointTransform {
 
     // Tell the Client/Renderer that the joint has been updated,
     // since the joint instance doesn't hold any transforms.
-    skeleton.emit(JOINT_TRANSFORM_EVENT, joint, this.rotationX, this.rotationY, this.rotationZ)
+    skeleton.emit(JOINT_TRANSFORM_EVENT, joint, this.rotation)
 
     return true
   }

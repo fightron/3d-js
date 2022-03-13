@@ -51,9 +51,9 @@ export class Skeleton extends EventEmitter {
     /**
      * An object to be rendered by an engine.
      *
-     * @type {?object}
+     * @type {object|undefined}
      */
-    this.renderable = null
+    this.renderable = undefined
 
     this.build()
   }

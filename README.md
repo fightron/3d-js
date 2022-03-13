@@ -18,10 +18,10 @@
 * :green_circle: `JointDefinition` - the blueprint of a single joint. Used to create skeleton definitions.
 * :green_circle: `Joints` - a collection of joints.
 * :green_circle: `JointVolume` - holds data to render a box. Used mostly for preview purposes.
-* :red_circle: `Pose`
+* :yellow_circle: [`Pose`](#pose)
 * :red_circle: `Animation`
 * :red_circle: `Scene` - an instance that holds instances of meshes, lights, sounds, cameras, skeletons, poses, and animations.
-* :red_circle: `Client` - presents a scene and provides a messaging interface to allow its contents to be changed by external sources.
+* :yellow_circle: `Client` - presents a scene and provides a messaging interface to allow its contents to be changed by external sources.
 * :yellow_circle: [`Renderer`](#renderer) - an interface that connects a client to an external 3D renderer.
 
 ---
@@ -45,8 +45,8 @@ First create a `SkeletonDefinition`. Those instances are long-lived and act as b
 var skeletonDefinition = new SkeletonDefinition({
   id: 'test-skeleton',
   joints: [
-    new JointDefinition({id: 'root'}),
-    new JointDefinition({id: 'spine', parent: 'root'})
+    {id: 'root'},
+    {id: 'spine', parent: 'root'}
   ]
 })
 ```

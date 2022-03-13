@@ -48,7 +48,7 @@ describe('Joints', function () {
     })
 
     it('sets the parent when present', function () {
-      expect(this.root.parent).to.eq(null)
+      expect(this.root.parent).to.eq(undefined)
       expect(this.spine.parent).to.eq(this.root)
     })
 

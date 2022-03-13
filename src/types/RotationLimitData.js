@@ -1,5 +1,5 @@
 /**
- * @typedef {object} RotationLimits
+ * @typedef {object} RotationLimitData
  * @property {number} [xMin]
  * @property {number} [xMax]
  * @property {number} [yMin]

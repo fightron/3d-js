@@ -1,12 +1,10 @@
-// @ts-check
-
 'use strict'
 
 import { JointDefinition } from './JointDefinition.js'
 
 export class SkeletonDefinition {
   /**
-   * @param {SkeletonDefinitionOptions} options
+   * @param {SkeletonDefinitionData} options
    */
   constructor ({ id, joints }) {
     /**
@@ -23,8 +21,8 @@ export class SkeletonDefinition {
      */
     this.joints = []
 
-    for (var jointDefOpts of joints) {
-      this.joints.push(new JointDefinition(jointDefOpts))
+    for (var jointDefData of joints) {
+      this.joints.push(new JointDefinition(jointDefData))
     }
   }
 

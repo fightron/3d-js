@@ -12,7 +12,7 @@ export class Pose {
    * @param {object} options
    * @param {string} options.id - ID of the pose. Required.
    * @param {SkeletonDefinition} options.skeletonDefinition - SkeletonDefinition instance to use. Required.
-   * @param {Array<JointTransformOptions>} options.transforms - An array of object literals for creating joint transforms.
+   * @param {Array<JointTransformData>} options.transforms - An array of object literals for creating joint transforms.
    * @param {boolean} [options.clear] - When `true`, will reset the skeleton pose before applying transforms.
    */
   constructor ({ id, skeletonDefinition, transforms = [], clear = false }) {
@@ -35,9 +35,7 @@ export class Pose {
       if (jointDef) {
         this.transforms.push(new JointTransform({
           jointDefinition: jointDef,
-          rotationX: t.rotationX,
-          rotationY: t.rotationY,
-          rotationZ: t.rotationZ
+          rotation: t.rotation
         }))
       }
     }

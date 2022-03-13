@@ -44,6 +44,9 @@ export class ClientCollections {
     /** @type {Map<number|string,Skeleton>} */
     var skeletons = new Map()
 
+    /** @type {Map<number|string,SkeletonDefinition>} */
+    var skeletonDefs = new Map()
+
     /** @type {Map<number|string,Sound>} */
     var sounds = new Map()
 
@@ -55,6 +58,7 @@ export class ClientCollections {
     data.set(MESHES, meshes)
     data.set(POSES, poses)
     data.set(SKELETONS, skeletons)
+    data.set(SKELETON_DEFS, skeletonDefs)
     data.set(SOUNDS, sounds)
 
     return data

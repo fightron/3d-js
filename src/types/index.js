@@ -17,6 +17,7 @@
  * @typedef { import("../Skeleton").Skeleton } Skeleton
  * @typedef { import("../SkeletonDefinition").SkeletonDefinition } SkeletonDefinition
  * @typedef { import("../Sound").Sound } Sound
+ * @typedef { import("../Vector3").Vector3 } Vector3
  */
 
 /**

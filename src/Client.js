@@ -1,7 +1,7 @@
 'use strict'
 
-import { ClientAddToCollection } from './operations/ClientAddToCollection.js'
 import { ClientCollections } from './operations/ClientCollections.js'
+import { ClientReceiveMessage } from './operations/ClientReceiveMessage.js'
 
 export class Client {
   /**
@@ -19,22 +19,21 @@ export class Client {
     this.data = ClientCollections.generate()
   }
 
-  feed (/* arguments */) {
-    var args
+  /**
+   * Feeds a message into the client.
+   *
+   * @param  {...any} args - Either a single array, or spread arguments.
+   * @returns {boolean}
+   */
+  feed (...args) {
+    var message
 
-    if (Array.isArray(arguments[0])) {
-      args = arguments[0]
+    if (Array.isArray(args[0])) {
+      message = args[0]
     } else {
-      args = arguments
+      message = args
     }
 
-    var command = args[0]
-
-    if (command === '+') {
-      return ClientAddToCollection.run(this, args[1], args[2])
-    }
-
-    console.error('Client#feed: unhandled command', command)
-    return false
+    return ClientReceiveMessage.run(this, message)
   }
 }
