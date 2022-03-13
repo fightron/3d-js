@@ -10,7 +10,7 @@ import { POSE_RESET_EVENT } from './Skeleton.js'
 export class Pose {
   /**
    * @param {object} options
-   * @param {string} options.id - ID of the pose. Required.
+   * @param {id} options.id - ID of the pose. Required.
    * @param {SkeletonDefinition} options.skeletonDefinition - SkeletonDefinition instance to use. Required.
    * @param {Array<JointTransformData>} options.transforms - An array of object literals for creating joint transforms.
    * @param {boolean} [options.clear] - When `true`, will reset the skeleton pose before applying transforms.
@@ -20,7 +20,7 @@ export class Pose {
       throw new Error('Pose: skeleton definition is required')
     }
 
-    /** @type {string} */
+    /** @type {id} */
     this.id = id
 
     /** @type {SkeletonDefinition} */
