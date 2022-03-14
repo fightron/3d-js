@@ -21,7 +21,7 @@ export class Joint {
     /**
      * An object that can be rendered by an engine.
      *
-     * @type {object|undefined}
+     * @type {JointRenderable}
      */
     this.renderable = undefined
   }

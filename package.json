@@ -20,11 +20,15 @@
   },
   "homepage": "https://github.com/fightron/3d-js#readme",
   "dependencies": {
-    "eventemitter3": "4.0.7"
+    "eventemitter3": "4.0.7",
+    "three": "0.138.3"
   },
   "devDependencies": {
     "@dimensionalpocket/development": "github:dimensionalpocket/development-js#0.5.3",
-    "@dimensionalpocket/release": "github:dimensionalpocket/release-js#0.2.4"
+    "@dimensionalpocket/release": "github:dimensionalpocket/release-js#0.2.4",
+    "@types/jsdom": "16.2.14",
+    "@types/three": "0.138.0",
+    "jsdom": "19.0.0"
   },
   "babel": {
     "extends": "./node_modules/@dimensionalpocket/development/babel"

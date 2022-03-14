@@ -1,21 +1,21 @@
 'use strict'
 
 import { expect } from '@dimensionalpocket/development'
+import { Skeleton } from '../../src/Skeleton.js'
 import { NullRenderer } from '../../src/renderers/NullRenderer.js'
+import { SkeletonDefinition } from '../../src/SkeletonDefinition.js'
 
 describe('renderers/NullRenderer', function () {
-  before(function () {
-    this.renderer = new NullRenderer()
-  })
+  var skeletonDef = new SkeletonDefinition({ id: 'test', joints: [{ id: 'j' }] })
+  var skeleton = new Skeleton({ id: 'test-skel', definition: skeletonDef })
+  var joint = skeleton.joints.get('j')
+  var renderer = new NullRenderer()
 
-  /**
-   * @param {string} methodName
-   */
-  function itBehavesLikeItReturnsTrue (methodName) {
+  function itBehavesLikeItReturnsTrue (/** @type {string} */ methodName, /** @type {...any} */ ...args) {
     describe(`#${methodName}`, function () {
       it('returns true', function () {
-        var dummy = { id: 123, definition: { id: 456 } }
-        expect(this.renderer[methodName](dummy)).to.eq(true)
+        // @ts-ignore - metaprogramming makes TS crai
+        expect(renderer[methodName](...args)).to.eq(true)
       })
     })
   }
@@ -34,8 +34,8 @@ describe('renderers/NullRenderer', function () {
   itBehavesLikeItReturnsTrue('setScaleY')
   itBehavesLikeItReturnsTrue('setScaleZ')
   itBehavesLikeItReturnsTrue('setGeometryRenderable')
-  itBehavesLikeItReturnsTrue('setSkeletonRenderable')
-  itBehavesLikeItReturnsTrue('setJointRenderable')
+  itBehavesLikeItReturnsTrue('setSkeletonRenderable', skeleton)
+  itBehavesLikeItReturnsTrue('setJointRenderable', joint)
   itBehavesLikeItReturnsTrue('setMaterialRenderable')
   itBehavesLikeItReturnsTrue('setMeshRenderable')
   itBehavesLikeItReturnsTrue('setLightRenderable')

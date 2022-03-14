@@ -123,6 +123,10 @@ export class NullRenderer extends Renderer {
    * @param {Skeleton} skeleton
    */
   setSkeletonRenderable (skeleton) {
+    skeleton.joints.forEach(joint => {
+      joint.renderable = this.setJointRenderable(joint)
+    })
+
     skeleton.renderable = { id: skeleton.id }
     return true
   }
