@@ -120,16 +120,18 @@ export class NullRenderer extends Renderer {
   }
 
   /**
-   * @param {Skeleton} _skeleton
+   * @param {Skeleton} skeleton
    */
-  setSkeletonRenderable (_skeleton) {
+  setSkeletonRenderable (skeleton) {
+    skeleton.renderable = { id: skeleton.id }
     return true
   }
 
   /**
-   * @param {Joint} _joint
+   * @param {Joint} joint
    */
-  setJointRenderable (_joint) {
+  setJointRenderable (joint) {
+    joint.renderable = { id: joint.definition.id }
     return true
   }
 

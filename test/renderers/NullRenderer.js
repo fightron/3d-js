@@ -12,9 +12,10 @@ describe('renderers/NullRenderer', function () {
    * @param {string} methodName
    */
   function itBehavesLikeItReturnsTrue (methodName) {
-    describe('#{methodName}', function () {
+    describe(`#${methodName}`, function () {
       it('returns true', function () {
-        expect(this.renderer[methodName]()).to.eq(true)
+        var dummy = { id: 123, definition: { id: 456 } }
+        expect(this.renderer[methodName](dummy)).to.eq(true)
       })
     })
   }

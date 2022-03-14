@@ -38,7 +38,7 @@ export class JointTransform {
 
     // Tell the Client/Renderer that the joint has been updated,
     // since the joint instance doesn't hold any transforms.
-    skeleton.emit(JOINT_TRANSFORM_EVENT, joint, this.rotation)
+    skeleton.emit(JOINT_TRANSFORM_EVENT, joint, this.rotation, skeleton)
 
     return true
   }
