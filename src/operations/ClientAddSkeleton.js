@@ -1,6 +1,6 @@
 'use strict'
 
-import { Skeleton } from '../Skeleton.js'
+import { JOINT_TRANSFORM_EVENT, POSE_RESET_EVENT, Skeleton } from '../Skeleton.js'
 
 export class ClientAddSkeleton {
   /**
@@ -20,6 +20,9 @@ export class ClientAddSkeleton {
       id: data.id,
       definition: definition
     })
+
+    skeleton.on(POSE_RESET_EVENT, client.onPoseReset, client)
+    skeleton.on(JOINT_TRANSFORM_EVENT, client.onJointTransform, client)
 
     client.data.skeletons.set(skeleton.id, skeleton)
 

@@ -40,7 +40,7 @@ describe('Client#feed(T) [Posing]', function () {
     this.renderer.setRotation.restore()
   })
 
-  it.skip('poses the skeleton', function () {
+  it('poses the skeleton', function () {
     var renderable = this.skeleton.joints.get('lKn').renderable
 
     this.client.feed('T', 'test-skeleton', 'test-pose')
