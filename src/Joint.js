@@ -1,9 +1,7 @@
-// @ts-check
-
 'use strict'
 
 /**
- * A Joint is a 3D point in space with a name that belongs to a skeleton instance.
+ * A Joint is a 3D point in space with an ID that belongs to a skeleton instance.
  */
 export class Joint {
   /**
@@ -14,8 +12,8 @@ export class Joint {
       throw new Error('Joint: definition is required')
     }
 
-    /** @type {Joint} */
-    this.parent = null
+    /** @type {Joint|undefined} */
+    this.parent = undefined
 
     /** @type {JointDefinition} */
     this.definition = definition
@@ -23,12 +21,8 @@ export class Joint {
     /**
      * An object that can be rendered by an engine.
      *
-     * @type {object}
+     * @type {object|undefined}
      */
-    this.renderable = null
+    this.renderable = undefined
   }
 }
-
-/**
- * @typedef { import("./JointDefinition").JointDefinition } JointDefinition
- */

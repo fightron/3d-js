@@ -1,5 +1,3 @@
-// @ts-check
-
 'use strict'
 
 import { expect } from '@dimensionalpocket/development'
@@ -7,18 +5,17 @@ import { expect } from '@dimensionalpocket/development'
 import { Skeleton } from '../src/Skeleton.js'
 import { SkeletonDefinition } from '../src/SkeletonDefinition.js'
 import { Joints } from '../src/Joints.js'
-import { JointDefinition } from '../src/JointDefinition.js'
 
 describe('Skeleton', function () {
   before(function () {
     this.skeletonDef = new SkeletonDefinition({
-      name: 'test',
+      id: 'test',
       joints: [
-        new JointDefinition({ name: 'root' }),
-        new JointDefinition({ name: 'spine', parent: 'root', position: { y: 5 } })
+        { id: 'root' },
+        { id: 'spine', parent: 'root', position: { y: 5 } }
       ]
     })
-    this.skeleton = new Skeleton(this.skeletonDef)
+    this.skeleton = new Skeleton({ id: 'test', definition: this.skeletonDef })
   })
 
   describe('constructor', function () {
@@ -37,7 +34,7 @@ describe('Skeleton', function () {
       })
 
       it('sets hierarchy', function () {
-        expect(this.skeleton.joints.get('root').parent).to.eq(null)
+        expect(this.skeleton.joints.get('root').parent).to.eq(undefined)
         expect(this.skeleton.joints.get('spine').parent).to.eq(this.skeleton.joints.get('root'))
       })
     })

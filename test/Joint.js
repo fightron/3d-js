@@ -1,5 +1,3 @@
-// @ts-check
-
 'use strict'
 
 import { expect } from '@dimensionalpocket/development'
@@ -8,11 +6,12 @@ import { JointDefinition } from '../src/JointDefinition.js'
 
 describe('Joint', function () {
   before(function () {
-    this.definition = new JointDefinition({ name: 'test', position: { y: 5 } })
+    this.definition = new JointDefinition({ id: 'test', position: { y: 5 } })
   })
 
   describe('constructor', function () {
     it('throws an error without a definition', function () {
+      // @ts-ignore
       expect(_ => new Joint(null)).to.throw(/definition is required/)
     })
 

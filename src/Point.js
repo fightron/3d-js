@@ -1,5 +1,5 @@
 'use strict'
 
-export class Geometry {
+export class Point {
   // TODO
 }

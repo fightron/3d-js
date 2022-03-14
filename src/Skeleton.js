@@ -1,18 +1,41 @@
-// @ts-check
-
 'use strict'
 
+import EventEmitter from 'eventemitter3'
 import { Joints } from './Joints.js'
 
-export class Skeleton {
+// Joints do not carry transforms. Skeletons emit transform events
+// that the Client/Renderer will listen to and apply transforms.
+export const POSE_RESET_EVENT = 'pose-reset'
+export const JOINT_TRANSFORM_EVENT = 'joint-transform'
+
+export class Skeleton extends EventEmitter {
   /**
    * Creates a skeleton instance which joints can be manipulated.
    *
-   * @param {SkeletonDefinition} definition - Skeleton definition.
+   * @param {object} options
+   * @param {id} options.id - Skeleton instance ID.
+   * @param {SkeletonDefinition} options.definition - Skeleton definition.
    */
-  constructor (definition) {
+  constructor ({ id, definition }) {
+    if (!id) {
+      throw new Error('Skeleton: ID is required')
+    }
+
+    if (!definition) {
+      throw new Error('Skeleton: definition is required')
+    }
+
+    super()
+
     /**
-     * The definition of this skeleton, containing name, joint data, etc.
+     * Skeleton instance ID.
+     *
+     * @type {id}
+     */
+    this.id = id
+
+    /**
+     * The definition of this skeleton, containing definition ID, joint data, etc.
      *
      * @type {SkeletonDefinition}
      */
@@ -20,33 +43,21 @@ export class Skeleton {
 
     /**
      * Array of joint instances (including root).
-     * These joints can be manipulated.
      *
      * @type {Joints}
      */
     this.joints = new Joints(this)
 
     /**
-     * The root joint of this skeleton.
+     * An object to be rendered by an engine.
      *
-     * @type {Joint}
+     * @type {object|undefined}
      */
-    this.root = null
-
-    /**
-     * Usually a THREE Skeleton, but can be something else
-     * depending on the rendering engine.
-     *
-     * @type {object}
-     */
-    this.renderable = null
+    this.renderable = undefined
 
     this.build()
   }
 
-  /**
-   * Builds joints for specialized skeletons.
-   */
   build () {
     var jointDefinitions = this.definition.joints
     for (var definition of jointDefinitions) {
@@ -54,8 +65,3 @@ export class Skeleton {
     }
   }
 }
-
-/**
- * @typedef { import("./Joint").Joint } Joint
- * @typedef { import("./SkeletonDefinition").SkeletonDefinition } SkeletonDefinition
- */

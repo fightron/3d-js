@@ -1,30 +1,42 @@
-// @ts-check
-
 'use strict'
+
+import { JointDefinition } from './JointDefinition.js'
 
 export class SkeletonDefinition {
   /**
-   * @param {object} options
-   * @param {string} options.name - Name of this skeleton.
-   * @param {Array<JointDefinition>} options.joints - Array of JointDefinition instances that define this skeleton.
+   * @param {SkeletonDefinitionData} options
    */
-  constructor ({ name, joints }) {
+  constructor ({ id, joints }) {
     /**
-     * Skeleton name.
+     * Skeleton ID.
      *
-     * @type {string}
+     * @type {string|number}
      */
-    this.name = name
+    this.id = id
 
     /**
      * Array of joint definitions.
      *
      * @type {Array<JointDefinition>}
      */
-    this.joints = joints
+    this.joints = []
+
+    for (var jointDefData of joints) {
+      this.joints.push(new JointDefinition(jointDefData))
+    }
+  }
+
+  /**
+   * Returns a joint definition by ID.
+   *
+   * @param {id} id - ID of the joint
+   * @returns {?JointDefinition}
+   */
+  getJointDefinition (id) {
+    for (var jointDef of this.joints) {
+      if (jointDef.id === id) return jointDef
+    }
+
+    return null
   }
 }
-
-/**
- * @typedef { import("./JointDefinition").JointDefinition } JointDefinition
- */

@@ -1,5 +1,3 @@
-// @ts-check
-
 'use strict'
 
 import { expect, sinon } from '@dimensionalpocket/development'
