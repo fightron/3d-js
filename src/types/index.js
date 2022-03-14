@@ -14,6 +14,7 @@
  * @typedef { import("../Light").Light } Light
  * @typedef { import("../Material").Material } Material
  * @typedef { import("../Mesh").Mesh } Mesh
+ * @typedef { import("../Point").Point } Point
  * @typedef { import("../Pose").Pose } Pose
  * @typedef { import("../Renderer").Renderer } Renderer
  * @typedef { import("../Scene").Scene } Scene

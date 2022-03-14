@@ -11,8 +11,8 @@ export class ClientPose {
    */
   static run (client, skeletonId, poseId) {
     var data = client.data
-    var skeleton = data.skeletons.get(skeletonId)
 
+    var skeleton = data.skeletons.get(skeletonId)
     if (!skeleton) {
       console.warn('ClientPose: skeleton not found:', skeletonId)
       return false

@@ -21,6 +21,11 @@ export class ClientAddSkeleton {
       definition: definition
     })
 
+    client.renderer.setSkeletonRenderable(skeleton)
+    skeleton.joints.forEach((joint) => {
+      client.renderer.setJointRenderable(joint)
+    })
+
     skeleton.on(POSE_RESET_EVENT, client.onPoseReset, client)
     skeleton.on(JOINT_TRANSFORM_EVENT, client.onJointTransform, client)
 

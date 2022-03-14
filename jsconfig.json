@@ -4,7 +4,14 @@
     "strict": true,
     "strictNullChecks": true,
     "typeRoots": ["./node_modules/@types"],
-    "target": "ES5"
+    "target": "ES5",
+    "lib": [
+      "dom",
+      "es5",
+      "es2015.collection",
+      "es2015.iterable"
+    ],
+    "downlevelIteration": true
   },
   "include": [
     "src/**/*.js",

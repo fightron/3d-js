@@ -7,7 +7,7 @@ import { Client } from '../../src/Client.js'
 import { NullRenderer } from '../../src/renderers/NullRenderer.js'
 import { HUMAN_SKELETON_JOINTS } from '../../data/skeleton-definitions/human.js'
 
-describe('Client#feed(T) [Posing]', function () {
+describe('e2e/client-posing', function () {
   before(function () {
     this.renderer = new NullRenderer()
     this.client = new Client(this.renderer)
@@ -23,7 +23,8 @@ describe('Client#feed(T) [Posing]', function () {
       id: 'test-pose',
       skeleton: 'human',
       transforms: [
-        { joint: 'lKn', rotation: { x: 1 } }
+        { joint: 'lKn', rotation: { x: 1 } },
+        { joint: 'N', rotation: { y: 3, z: -2 } }
       ]
     }
 
@@ -41,10 +42,16 @@ describe('Client#feed(T) [Posing]', function () {
   })
 
   it('poses the skeleton', function () {
-    var renderable = this.skeleton.joints.get('lKn').renderable
-
+    var joints = this.skeleton.joints
     this.client.feed('T', 'test-skeleton', 'test-pose')
 
-    expect(this.renderer.setRotation).to.have.been.calledWith(renderable, 1, 0, 0)
+    var knee = joints.get('lKn').renderable
+    var neck = joints.get('N').renderable
+
+    expect(knee).to.exist
+    expect(neck).to.exist
+
+    expect(this.renderer.setRotation).to.have.been.calledWith(knee, 1, 0, 0)
+    expect(this.renderer.setRotation).to.have.been.calledWith(neck, 0, 3, -2)
   })
 })
