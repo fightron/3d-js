@@ -7,7 +7,8 @@
   "scripts": {
     "test": "npm run lint && NODE_ENV=test c8 mocha",
     "lint": "standardx --fix --verbose",
-    "release": "release-it --config ./node_modules/@dimensionalpocket/release/config/default.js"
+    "release": "release-it --config ./node_modules/@dimensionalpocket/release/config/default.js",
+    "serve": "webpack serve --config config/webpack.cjs"
   },
   "repository": {
     "type": "git",
@@ -25,6 +26,7 @@
   },
   "devDependencies": {
     "@dimensionalpocket/development": "github:dimensionalpocket/development-js#0.5.3",
+    "@dimensionalpocket/development-webpack": "github:dimensionalpocket/development-webpack#webpack-cli",
     "@dimensionalpocket/release": "github:dimensionalpocket/release-js#0.2.4",
     "@types/jsdom": "16.2.14",
     "@types/three": "0.138.0",
