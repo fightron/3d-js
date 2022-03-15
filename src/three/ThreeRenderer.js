@@ -5,7 +5,7 @@ import { Renderer } from '../Renderer.js'
 
 export class ThreeRenderer extends Renderer {
   /**
-   * @param {HTMLCanvasElement} canvas
+   * @param {HTMLCanvasElement|HTMLElement} canvas
    */
   constructor (canvas) {
     if (!canvas) {

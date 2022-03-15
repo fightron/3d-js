@@ -5,7 +5,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const defaultBabelRule = require('@dimensionalpocket/development-webpack/rules/babel')
 const defaultStyleRule = require('@dimensionalpocket/development-webpack/rules/style')
-const defaultPlugins = require('@dimensionalpocket/development-webpack/plugins')
 
 const root = path.resolve(__dirname, '..')
 
@@ -17,7 +16,10 @@ module.exports = {
     filename: 'bundle.js'
   },
   module: {
-    rules: [defaultBabelRule, defaultStyleRule]
+    rules: [
+      defaultBabelRule,
+      defaultStyleRule
+    ]
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -26,6 +28,7 @@ module.exports = {
       filename: 'index.html'
     })
   ],
+  devtool: 'eval-source-map',
   devServer: {
     hot: true
   }
