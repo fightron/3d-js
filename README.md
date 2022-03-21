@@ -1,3 +1,7 @@
+This project has been archived in favor of: https://github.com/dimensionalpocket/3d-client-three
+
+---
+
 # @fightron/3d
 
 [![build](https://github.com/fightron/3d-js/actions/workflows/node.js.yml/badge.svg)](https://github.com/fightron/3d-js/actions/workflows/node.js.yml) [![Total alerts](https://img.shields.io/lgtm/alerts/g/fightron/3d-js.svg)](https://lgtm.com/projects/g/fightron/3d-js/alerts/) [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/fightron/3d-js.svg)](https://lgtm.com/projects/g/fightron/3d-js/context:javascript)
